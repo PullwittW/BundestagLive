@@ -13,6 +13,9 @@
 		72ADE2F02C824D5E00F69370 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 72ADE2EF2C824D5E00F69370 /* Assets.xcassets */; };
 		72ADE2F32C824D5E00F69370 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 72ADE2F22C824D5E00F69370 /* Preview Assets.xcassets */; };
 		72C457532C825500006E1234 /* PoliticianView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C457522C825500006E1234 /* PoliticianView.swift */; };
+		72C457562C82610F006E1234 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C457552C82610F006E1234 /* SearchView.swift */; };
+		72C457582C82611E006E1234 /* PoliticiansViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C457572C82611E006E1234 /* PoliticiansViewModel.swift */; };
+		72C4575A2C826136006E1234 /* PoliticiansModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C457592C826136006E1234 /* PoliticiansModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +26,9 @@
 		72ADE2EF2C824D5E00F69370 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		72ADE2F22C824D5E00F69370 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		72C457522C825500006E1234 /* PoliticianView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoliticianView.swift; sourceTree = "<group>"; };
+		72C457552C82610F006E1234 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		72C457572C82611E006E1234 /* PoliticiansViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoliticiansViewModel.swift; sourceTree = "<group>"; };
+		72C457592C826136006E1234 /* PoliticiansModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoliticiansModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,7 +62,9 @@
 			isa = PBXGroup;
 			children = (
 				72ADE2EB2C824D5B00F69370 /* BundestagLiveApp.swift */,
-				72ADE2F92C824D6F00F69370 /* Politicians */,
+				72C457552C82610F006E1234 /* SearchView.swift */,
+				72C457542C8260FA006E1234 /* Politicians */,
+				72ADE2F92C824D6F00F69370 /* Politician */,
 				72ADE2FA2C824D8700F69370 /* Models */,
 				72ADE2EF2C824D5E00F69370 /* Assets.xcassets */,
 				72ADE2F12C824D5E00F69370 /* Preview Content */,
@@ -72,21 +80,30 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		72ADE2F92C824D6F00F69370 /* Politicians */ = {
+		72ADE2F92C824D6F00F69370 /* Politician */ = {
 			isa = PBXGroup;
 			children = (
 				7271379A2C824E88007A6EF7 /* PoliticianViewModel.swift */,
 				72C457522C825500006E1234 /* PoliticianView.swift */,
 			);
-			name = Politicians;
+			name = Politician;
 			sourceTree = "<group>";
 		};
 		72ADE2FA2C824D8700F69370 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				727137982C824E01007A6EF7 /* PoliticianModel.swift */,
+				72C457592C826136006E1234 /* PoliticiansModel.swift */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		72C457542C8260FA006E1234 /* Politicians */ = {
+			isa = PBXGroup;
+			children = (
+				72C457572C82611E006E1234 /* PoliticiansViewModel.swift */,
+			);
+			name = Politicians;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -161,7 +178,10 @@
 			files = (
 				7271379B2C824E88007A6EF7 /* PoliticianViewModel.swift in Sources */,
 				72C457532C825500006E1234 /* PoliticianView.swift in Sources */,
+				72C457562C82610F006E1234 /* SearchView.swift in Sources */,
 				727137992C824E01007A6EF7 /* PoliticianModel.swift in Sources */,
+				72C457582C82611E006E1234 /* PoliticiansViewModel.swift in Sources */,
+				72C4575A2C826136006E1234 /* PoliticiansModel.swift in Sources */,
 				72ADE2EC2C824D5B00F69370 /* BundestagLiveApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -14,7 +14,7 @@ struct PoliticianResult: Codable {
 }
 
 // MARK: - DataClass
-struct DataClass: Codable {
+struct DataClass: Codable, Identifiable {
     let id: Int?
     let entityType, label: String?
     let apiURL, abgeordnetenwatchURL: String?
