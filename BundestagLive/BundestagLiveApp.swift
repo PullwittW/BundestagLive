@@ -11,7 +11,8 @@ import SwiftUI
 struct BundestagLiveApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            PoliticianView()
+                .environmentObject(PoliticianViewModel())
         }
     }
 }
