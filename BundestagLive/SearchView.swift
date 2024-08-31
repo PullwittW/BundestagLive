@@ -37,10 +37,10 @@ struct SearchView: View {
                 Section {
                     ForEach(partysVM.partys ?? []) { party in
                         NavigationLink {
-                            
+                            PartyView(party: party)
                         } label: {
                             HStack {
-                                Text("\(party.shortName ?? "Kein Name")")
+                                Text("\(party.label ?? "Kein Name")")
                                     .foregroundColor(.primary)
                                 Spacer()
                             }
@@ -57,8 +57,8 @@ struct SearchView: View {
                 }
 
             }
-            .navigationTitle("Suche")
             .searchable(text: $politiciansVM.searchInput)
+            .navigationTitle("Suche")
             .onAppear {
                 if ((politiciansVM.politicians?.isEmpty) != false) {
                     politiciansVM.loadPoliticians()

@@ -27,6 +27,7 @@
 		72CF33302C83084D002D7BCD /* MoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72CF332F2C83084D002D7BCD /* MoreView.swift */; };
 		72CF33332C830882002D7BCD /* ElectionProgrammView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72CF33322C830882002D7BCD /* ElectionProgrammView.swift */; };
 		72CF33352C830895002D7BCD /* NextElectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72CF33342C830895002D7BCD /* NextElectionView.swift */; };
+		72CF33372C83191C002D7BCD /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72CF33362C83191C002D7BCD /* TabBarView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +52,7 @@
 		72CF332F2C83084D002D7BCD /* MoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreView.swift; sourceTree = "<group>"; };
 		72CF33322C830882002D7BCD /* ElectionProgrammView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElectionProgrammView.swift; sourceTree = "<group>"; };
 		72CF33342C830895002D7BCD /* NextElectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextElectionView.swift; sourceTree = "<group>"; };
+		72CF33362C83191C002D7BCD /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,6 +183,7 @@
 			isa = PBXGroup;
 			children = (
 				72CF332C2C830822002D7BCD /* HomeView.swift */,
+				72CF33362C83191C002D7BCD /* TabBarView.swift */,
 			);
 			name = Home;
 			sourceTree = "<group>";
@@ -299,6 +302,7 @@
 				72C4575A2C826136006E1234 /* PoliticiansModel.swift in Sources */,
 				72ADE2EC2C824D5B00F69370 /* BundestagLiveApp.swift in Sources */,
 				72C4575D2C826FC1006E1234 /* PollsView.swift in Sources */,
+				72CF33372C83191C002D7BCD /* TabBarView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

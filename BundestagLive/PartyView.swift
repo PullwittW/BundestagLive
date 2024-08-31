@@ -8,11 +8,20 @@
 import SwiftUI
 
 struct PartyView: View {
+    
+    let party: DataClassParty
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationStack {
+            VStack {
+                Text(party.fullName ?? "Kein Label")
+            }
+            .navigationTitle(party.label ?? "Partei")
+            .navigationBarTitleDisplayMode(.inline)
+        }
     }
 }
 
-#Preview {
-    PartyView()
-}
+//#Preview {
+//    PartyView()
+//}

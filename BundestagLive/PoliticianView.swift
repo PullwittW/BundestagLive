@@ -19,7 +19,7 @@ struct PoliticianView: View {
             }
             .padding()
         }
-        .navigationTitle(String(describing: politician.firstName))
+        .navigationTitle("\(politician.firstName ?? "Politiker") \(politician.lastName ?? "")")
         .navigationBarTitleDisplayMode(.inline)
     }
 }
