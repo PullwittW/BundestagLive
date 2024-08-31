@@ -16,6 +16,17 @@
 		72C457562C82610F006E1234 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C457552C82610F006E1234 /* SearchView.swift */; };
 		72C457582C82611E006E1234 /* PoliticiansViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C457572C82611E006E1234 /* PoliticiansViewModel.swift */; };
 		72C4575A2C826136006E1234 /* PoliticiansModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C457592C826136006E1234 /* PoliticiansModel.swift */; };
+		72C4575D2C826FC1006E1234 /* PollsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C4575C2C826FC0006E1234 /* PollsView.swift */; };
+		72CF331C2C83013A002D7BCD /* PartyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72CF331B2C83013A002D7BCD /* PartyModel.swift */; };
+		72CF331E2C83014A002D7BCD /* PartyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72CF331D2C83014A002D7BCD /* PartyViewModel.swift */; };
+		72CF33222C830377002D7BCD /* PartysViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72CF33212C830377002D7BCD /* PartysViewModel.swift */; };
+		72CF33242C8303B0002D7BCD /* PartysModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72CF33232C8303B0002D7BCD /* PartysModel.swift */; };
+		72CF33292C8307FF002D7BCD /* PartyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72CF33282C8307FF002D7BCD /* PartyView.swift */; };
+		72CF332B2C830812002D7BCD /* FractionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72CF332A2C830812002D7BCD /* FractionView.swift */; };
+		72CF332D2C830822002D7BCD /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72CF332C2C830822002D7BCD /* HomeView.swift */; };
+		72CF33302C83084D002D7BCD /* MoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72CF332F2C83084D002D7BCD /* MoreView.swift */; };
+		72CF33332C830882002D7BCD /* ElectionProgrammView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72CF33322C830882002D7BCD /* ElectionProgrammView.swift */; };
+		72CF33352C830895002D7BCD /* NextElectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72CF33342C830895002D7BCD /* NextElectionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +40,17 @@
 		72C457552C82610F006E1234 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		72C457572C82611E006E1234 /* PoliticiansViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoliticiansViewModel.swift; sourceTree = "<group>"; };
 		72C457592C826136006E1234 /* PoliticiansModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoliticiansModel.swift; sourceTree = "<group>"; };
+		72C4575C2C826FC0006E1234 /* PollsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollsView.swift; sourceTree = "<group>"; };
+		72CF331B2C83013A002D7BCD /* PartyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartyModel.swift; sourceTree = "<group>"; };
+		72CF331D2C83014A002D7BCD /* PartyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartyViewModel.swift; sourceTree = "<group>"; };
+		72CF33212C830377002D7BCD /* PartysViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartysViewModel.swift; sourceTree = "<group>"; };
+		72CF33232C8303B0002D7BCD /* PartysModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartysModel.swift; sourceTree = "<group>"; };
+		72CF33282C8307FF002D7BCD /* PartyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartyView.swift; sourceTree = "<group>"; };
+		72CF332A2C830812002D7BCD /* FractionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FractionView.swift; sourceTree = "<group>"; };
+		72CF332C2C830822002D7BCD /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		72CF332F2C83084D002D7BCD /* MoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreView.swift; sourceTree = "<group>"; };
+		72CF33322C830882002D7BCD /* ElectionProgrammView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElectionProgrammView.swift; sourceTree = "<group>"; };
+		72CF33342C830895002D7BCD /* NextElectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextElectionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,9 +84,8 @@
 			isa = PBXGroup;
 			children = (
 				72ADE2EB2C824D5B00F69370 /* BundestagLiveApp.swift */,
-				72C457552C82610F006E1234 /* SearchView.swift */,
-				72C457542C8260FA006E1234 /* Politicians */,
-				72ADE2F92C824D6F00F69370 /* Politician */,
+				72C4575B2C826FA6006E1234 /* Core */,
+				72C4575E2C826FDF006E1234 /* ViewModels */,
 				72ADE2FA2C824D8700F69370 /* Models */,
 				72ADE2EF2C824D5E00F69370 /* Assets.xcassets */,
 				72ADE2F12C824D5E00F69370 /* Preview Content */,
@@ -84,7 +105,6 @@
 			isa = PBXGroup;
 			children = (
 				7271379A2C824E88007A6EF7 /* PoliticianViewModel.swift */,
-				72C457522C825500006E1234 /* PoliticianView.swift */,
 			);
 			name = Politician;
 			sourceTree = "<group>";
@@ -94,6 +114,8 @@
 			children = (
 				727137982C824E01007A6EF7 /* PoliticianModel.swift */,
 				72C457592C826136006E1234 /* PoliticiansModel.swift */,
+				72CF331B2C83013A002D7BCD /* PartyModel.swift */,
+				72CF33232C8303B0002D7BCD /* PartysModel.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -104,6 +126,89 @@
 				72C457572C82611E006E1234 /* PoliticiansViewModel.swift */,
 			);
 			name = Politicians;
+			sourceTree = "<group>";
+		};
+		72C4575B2C826FA6006E1234 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				72CF33262C830517002D7BCD /* Home */,
+				72CF33252C83050E002D7BCD /* Search */,
+				72CF33272C83052B002D7BCD /* Polls */,
+				72CF332E2C830833002D7BCD /* More */,
+			);
+			name = Core;
+			sourceTree = "<group>";
+		};
+		72C4575E2C826FDF006E1234 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				72ADE2F92C824D6F00F69370 /* Politician */,
+				72C457542C8260FA006E1234 /* Politicians */,
+				72CF331F2C830153002D7BCD /* Party */,
+				72CF33202C830366002D7BCD /* Partys */,
+			);
+			name = ViewModels;
+			sourceTree = "<group>";
+		};
+		72CF331F2C830153002D7BCD /* Party */ = {
+			isa = PBXGroup;
+			children = (
+				72CF331D2C83014A002D7BCD /* PartyViewModel.swift */,
+			);
+			name = Party;
+			sourceTree = "<group>";
+		};
+		72CF33202C830366002D7BCD /* Partys */ = {
+			isa = PBXGroup;
+			children = (
+				72CF33212C830377002D7BCD /* PartysViewModel.swift */,
+			);
+			name = Partys;
+			sourceTree = "<group>";
+		};
+		72CF33252C83050E002D7BCD /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				72C457552C82610F006E1234 /* SearchView.swift */,
+				72C457522C825500006E1234 /* PoliticianView.swift */,
+				72CF33282C8307FF002D7BCD /* PartyView.swift */,
+				72CF332A2C830812002D7BCD /* FractionView.swift */,
+			);
+			name = Search;
+			sourceTree = "<group>";
+		};
+		72CF33262C830517002D7BCD /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				72CF332C2C830822002D7BCD /* HomeView.swift */,
+			);
+			name = Home;
+			sourceTree = "<group>";
+		};
+		72CF33272C83052B002D7BCD /* Polls */ = {
+			isa = PBXGroup;
+			children = (
+				72C4575C2C826FC0006E1234 /* PollsView.swift */,
+			);
+			name = Polls;
+			sourceTree = "<group>";
+		};
+		72CF332E2C830833002D7BCD /* More */ = {
+			isa = PBXGroup;
+			children = (
+				72CF33312C83085F002D7BCD /* MoreSubViews */,
+				72CF332F2C83084D002D7BCD /* MoreView.swift */,
+			);
+			name = More;
+			sourceTree = "<group>";
+		};
+		72CF33312C83085F002D7BCD /* MoreSubViews */ = {
+			isa = PBXGroup;
+			children = (
+				72CF33322C830882002D7BCD /* ElectionProgrammView.swift */,
+				72CF33342C830895002D7BCD /* NextElectionView.swift */,
+			);
+			name = MoreSubViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -176,13 +281,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				72CF33352C830895002D7BCD /* NextElectionView.swift in Sources */,
+				72CF33242C8303B0002D7BCD /* PartysModel.swift in Sources */,
 				7271379B2C824E88007A6EF7 /* PoliticianViewModel.swift in Sources */,
+				72CF331E2C83014A002D7BCD /* PartyViewModel.swift in Sources */,
+				72CF332D2C830822002D7BCD /* HomeView.swift in Sources */,
+				72CF33222C830377002D7BCD /* PartysViewModel.swift in Sources */,
 				72C457532C825500006E1234 /* PoliticianView.swift in Sources */,
+				72CF331C2C83013A002D7BCD /* PartyModel.swift in Sources */,
+				72CF33302C83084D002D7BCD /* MoreView.swift in Sources */,
 				72C457562C82610F006E1234 /* SearchView.swift in Sources */,
 				727137992C824E01007A6EF7 /* PoliticianModel.swift in Sources */,
+				72CF33292C8307FF002D7BCD /* PartyView.swift in Sources */,
+				72CF33332C830882002D7BCD /* ElectionProgrammView.swift in Sources */,
 				72C457582C82611E006E1234 /* PoliticiansViewModel.swift in Sources */,
+				72CF332B2C830812002D7BCD /* FractionView.swift in Sources */,
 				72C4575A2C826136006E1234 /* PoliticiansModel.swift in Sources */,
 				72ADE2EC2C824D5B00F69370 /* BundestagLiveApp.swift in Sources */,
+				72C4575D2C826FC1006E1234 /* PollsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

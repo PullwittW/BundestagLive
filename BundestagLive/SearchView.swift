@@ -10,6 +10,7 @@ import SwiftUI
 struct SearchView: View {
     
     @EnvironmentObject private var politiciansVM: PoliticiansViewModel
+    @EnvironmentObject private var partysVM: PartysViewModel
     
     var body: some View {
         NavigationStack {
@@ -19,15 +20,13 @@ struct SearchView: View {
                 Section {
                     ForEach(politiciansVM.politicians ?? []) { politician in
                         NavigationLink {
-                            
+                            PoliticianView(politician: politician)
                         } label: {
                             HStack {
                                 Text("\(politician.lastName ?? "Kein Nachname"), \(politician.firstName ?? "Kein Vorname")")
                                     .foregroundColor(.primary)
                                 Spacer()
                             }
-                            .background(Color(UIColor.secondarySystemBackground))
-                            .cornerRadius(8)
                         }
                     }
                 } header: {
@@ -36,16 +35,37 @@ struct SearchView: View {
                 
                 // Sektion für Partein des Suchergebnisses
                 Section {
-                    
+                    ForEach(partysVM.partys ?? []) { party in
+                        NavigationLink {
+                            
+                        } label: {
+                            HStack {
+                                Text("\(party.shortName ?? "Kein Name")")
+                                    .foregroundColor(.primary)
+                                Spacer()
+                            }
+                        }
+                    }
                 } header: {
                     Text("Partein")
+                }
+                
+                Section {
+                    
+                } header: {
+                    Text("Fraktionen")
                 }
 
             }
             .navigationTitle("Suche")
             .searchable(text: $politiciansVM.searchInput)
             .onAppear {
-                politiciansVM.loadPoliticians()
+                if ((politiciansVM.politicians?.isEmpty) != false) {
+                    politiciansVM.loadPoliticians()
+                }
+                if ((partysVM.partys?.isEmpty) != false) {
+                    partysVM.loadPartys()
+                }
             }
         }
     }

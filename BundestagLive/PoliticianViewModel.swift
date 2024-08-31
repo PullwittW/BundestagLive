@@ -10,7 +10,7 @@ import Foundation
 
 @MainActor
 class PoliticianViewModel: ObservableObject {
-    @Published var politician: DataClass?
+    @Published var politician: DataClassPolitician?
     @Published var meta: Meta?
     @Published var errorMessage: String?
     @Published var isLoading: Bool?
@@ -24,8 +24,8 @@ class PoliticianViewModel: ObservableObject {
     func fetchPolitician(politicianId: Int) async {
         print("LOADING POLITICIAN")
         guard let url = URL(string: "https://www.abgeordnetenwatch.de/api/v2/politicians/\(politicianId)") else {
-            print("Ungültige URL")
-            errorMessage = "Ungültige URL"
+            print("Ungültige Politician URL")
+            errorMessage = "Ungültige Politician URL"
             return
         }
         
@@ -48,7 +48,7 @@ class PoliticianViewModel: ObservableObject {
 //            print(politician.self)
         } catch {
             errorMessage = "Fehler: \(error.localizedDescription)"
-            print("Fehler beim Abrufen der Daten: \(error)")
+            print("Fehler beim Abrufen der Politician-Daten: \(error)")
         }
         
         isLoading = false

@@ -15,6 +15,7 @@ struct BundestagLiveApp: App {
 //                .environmentObject(PoliticianViewModel())
             SearchView()
                 .environmentObject(PoliticiansViewModel())
+                .environmentObject(PartysViewModel())
         }
     }
 }

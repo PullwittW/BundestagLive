@@ -10,11 +10,11 @@ import Foundation
 // MARK: - PoliticianResult
 struct PoliticianResult: Codable {
     let meta: Meta?
-    let data: DataClass?
+    let data: DataClassPolitician?
 }
 
 // MARK: - DataClass
-struct DataClass: Codable, Identifiable {
+struct DataClassPolitician: Codable, Identifiable {
     let id: Int?
     let entityType, label: String?
     let apiURL, abgeordnetenwatchURL: String?

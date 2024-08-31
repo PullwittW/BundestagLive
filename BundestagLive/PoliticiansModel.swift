@@ -10,5 +10,5 @@ import Foundation
 // MARK: - PoliticianResult
 struct PoliticiansResult: Codable {
     let meta: Meta?
-    let data: [DataClass]?
+    let data: [DataClassPolitician]?
 }

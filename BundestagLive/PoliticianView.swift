@@ -8,22 +8,22 @@
 import SwiftUI
 
 struct PoliticianView: View {
-    
-    @EnvironmentObject private var politicianVM: PoliticianViewModel
+    let politician: DataClassPolitician
     
     var body: some View {
-        VStack {
-            Text(politicianVM.politician?.firstName ?? "Kein Name gefunden")
-            Text(politicianVM.politician?.lastName ?? "Kein Name gefunden")
-            Text(politicianVM.politician?.party?.label ?? "Keine Partei gefunden")
+        NavigationStack {
+            VStack {
+                Text(politician.firstName ?? "Kein Name gefunden")
+                Text(politician.lastName ?? "Kein Name gefunden")
+                Text(politician.party?.label ?? "Keine Partei gefunden")
+            }
+            .padding()
         }
-        .padding()
-        .onAppear {
-            politicianVM.loadPolitician(politicianId: 119742)
-        }
+        .navigationTitle(String(describing: politician.firstName))
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 
-#Preview {
-    PoliticianView()
-}
+//#Preview {
+//    PoliticianView()
+//}

@@ -9,7 +9,7 @@ import Foundation
 
 @MainActor
 class PoliticiansViewModel: ObservableObject {
-    @Published var politicians: [DataClass]?
+    @Published var politicians: [DataClassPolitician]?
     @Published var errorMessage: String?
     @Published var isLoading: Bool?
     @Published var searchInput: String = ""
@@ -21,10 +21,10 @@ class PoliticiansViewModel: ObservableObject {
     }
     
     func fetchPoliticians() async {
-        print("LOADING POLITICIAN")
+        print("LOADING POLITICIANS")
         guard let url = URL(string: "https://www.abgeordnetenwatch.de/api/v2/politicians?sort_by=last_name&sort_direction=asc&range_start=1&range_end=10") else {
-            print("Ungültige URL")
-            errorMessage = "Ungültige URL"
+            print("Ungültige Politicians URL")
+            errorMessage = "Ungültige Politicians URL"
             return
         }
         
@@ -48,7 +48,7 @@ class PoliticiansViewModel: ObservableObject {
 //            }
         } catch {
             errorMessage = "Fehler: \(error.localizedDescription)"
-            print("Fehler beim Abrufen der Daten: \(error)")
+            print("Fehler beim Abrufen der Politicians-Daten: \(error)")
         }
         
         isLoading = false
