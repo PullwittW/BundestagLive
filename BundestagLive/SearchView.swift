@@ -6,11 +6,14 @@
 //
 
 import SwiftUI
+import Combine
 
 struct SearchView: View {
     
     @EnvironmentObject private var politiciansVM: PoliticiansViewModel
     @EnvironmentObject private var partysVM: PartysViewModel
+    @EnvironmentObject private var fractionsVM: FractionsViewModel
+    @State private var debounceTimer: AnyCancellable? = nil
     
     var body: some View {
         NavigationStack {
@@ -51,7 +54,17 @@ struct SearchView: View {
                 }
                 
                 Section {
-                    
+                    ForEach(fractionsVM.fractions ?? []) { fraction in
+                        NavigationLink {
+                            FractionView()
+                        } label: {
+                            HStack {
+                                Text("\(fraction.label ?? "Kein Name")")
+                                    .foregroundColor(.primary)
+                                Spacer()
+                            }
+                        }
+                    }
                 } header: {
                     Text("Fraktionen")
                 }
@@ -65,10 +78,35 @@ struct SearchView: View {
                     politiciansVM.loadPoliticians()
                 }
                 if ((partysVM.partys?.isEmpty) != false) {
-                    partysVM.loadPartys()
+                    partysVM.loadPartys(searchInput: politiciansVM.searchInput)
+                }
+                if ((fractionsVM.fractions?.isEmpty) != false) {
+                    fractionsVM.loadFractions(searchInput: politiciansVM.searchInput)
                 }
             }
+            .onChange(of: politiciansVM.searchInput) {
+                startDebounceTimer()
+            }
         }
+    }
+    
+    private func startDebounceTimer() {
+        debounceTimer?.cancel() // Vorherigen Timer abbrechen, falls vorhanden
+        
+        // Neuen Timer starten, der nach 1 Sekunde den Code ausführt
+        debounceTimer = Just(())
+            .delay(for: .seconds(0.75), scheduler: RunLoop.main)
+            .sink { _ in
+                onInputChangeDelayed()
+            }
+    }
+    
+    private func onInputChangeDelayed() {
+        let trimmedSearch = politiciansVM.searchInput.trimmingCharacters(in: .whitespaces)
+        print("Input hat sich seit 1 Sekunde nicht geändert: \(trimmedSearch)")
+        politiciansVM.loadPoliticians()
+        partysVM.loadPartys(searchInput: trimmedSearch)
+        fractionsVM.loadFractions(searchInput: trimmedSearch)
     }
 }
 

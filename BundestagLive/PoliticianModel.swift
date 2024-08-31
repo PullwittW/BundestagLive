@@ -51,6 +51,30 @@ struct DataClassPolitician: Codable, Identifiable {
         case qidWikidata = "qid_wikidata"
         case fieldTitle = "field_title"
     }
+    
+    // Standard-Datensatz für Preview
+    static let examplePolitician = DataClassPolitician(
+        id: 119742,
+        entityType: "politician",
+        label: "Christian Lindner",
+        apiURL: "https://api.example.com/politicians/1",
+        abgeordnetenwatchURL: "https://www.abgeordnetenwatch.de/profile/max-mustermann",
+        firstName: "Christian",
+        lastName: "Lindner",
+        birthName: nil,
+        sex: "m",
+        yearOfBirth: 1979,
+        party: Party.exampleParty,
+        partyPast: nil,
+        education: "Politikwissenschaften, Staatsrecht und Philosophie",
+        residence: nil,
+        occupation: "Bundesminister der Finanzen, MdB, FDP-Parteivorsitzender",
+        statisticQuestions: 10,
+        statisticQuestionsAnswered: 8,
+        extIDBundestagsverwaltung: "12345",
+        qidWikidata: "Q67890",
+        fieldTitle: "Abgeordneter"
+    )
 }
 
 // MARK: - Party
@@ -65,6 +89,14 @@ struct Party: Codable {
         case label
         case apiURL = "api_url"
     }
+    
+    // Standard-Datensatz für Preview
+    static let exampleParty = Party(
+        id: 4,
+        entityType: "party",
+        label: "FDP",
+        apiURL: "https://api.example.com/parties/1"
+    )
 }
 
 // MARK: - Meta
@@ -79,6 +111,14 @@ struct Meta: Codable {
         case statusMessage = "status_message"
         case result
     }
+    
+    // Standard-Datensatz für Preview
+    static let example = Meta(
+        abgeordnetenwatchAPI: AbgeordnetenwatchAPI.example,
+        status: "OK",
+        statusMessage: "Success",
+        result: Result.example
+    )
 }
 
 // MARK: - AbgeordnetenwatchAPI
@@ -94,6 +134,15 @@ struct AbgeordnetenwatchAPI: Codable {
         case licenceLink = "licence_link"
         case documentation
     }
+    
+    // Standard-Datensatz für Preview
+    static let example = AbgeordnetenwatchAPI(
+        version: "2.0",
+        changelog: "Initial Release",
+        licence: "MIT",
+        licenceLink: "https://opensource.org/licenses/MIT",
+        documentation: "https://www.abgeordnetenwatch.de/api/documentation"
+    )
 }
 
 // MARK: - Result
@@ -104,6 +153,12 @@ struct Result: Codable {
         case entityID = "entity_id"
         case entityType = "entity_type"
     }
+    
+    // Standard-Datensatz für Preview
+    static let example = Result(
+        entityID: "119742",
+        entityType: "Politician"
+    )
 }
 
 // MARK: - Encode/decode helpers

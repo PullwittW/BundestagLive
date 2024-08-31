@@ -15,6 +15,7 @@ struct BundestagLiveApp: App {
                 .preferredColorScheme(.light)
                 .environmentObject(PoliticiansViewModel())
                 .environmentObject(PartysViewModel())
+                .environmentObject(FractionsViewModel())
         }
     }
 }

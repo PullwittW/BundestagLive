@@ -3,7 +3,7 @@
 //  BundestagLive
 //
 //  Created by Wangu Pullwitt on 31.08.24.
-//
+//https://www.abgeordnetenwatch.de/api/v2/parties/?label[cn]=CDU
 
 import Foundation
 
@@ -13,15 +13,15 @@ class PartysViewModel: ObservableObject {
     @Published var errorMessage: String?
     @Published var isLoading: Bool?
     
-    func loadPartys() {
+    func loadPartys(searchInput: String) {
         Task {
-            await fetchPartys()
+            await fetchPartys(searchInput: searchInput)
         }
     }
     
-    func fetchPartys() async {
+    func fetchPartys(searchInput: String) async {
         print("LOADING PARTYS")
-        guard let url = URL(string: "https://www.abgeordnetenwatch.de/api/v2/parties/?sort_by=full_name&sort_direction=asc&range_start=1&range_end=10") else {
+        guard let url = URL(string: "https://www.abgeordnetenwatch.de/api/v2/parties/?label[cn]=\(searchInput)&sort_by=full_name&sort_direction=asc&range_start=0&range_end=9") else {
             print("Ungültige Partys URL")
             errorMessage = "Ungültige Partys URL"
             return

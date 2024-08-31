@@ -3,9 +3,10 @@
 //  BundestagLive
 //
 //  Created by Wangu Pullwitt on 30.08.24.
-//
+// https://www.abgeordnetenwatch.de/api/v2/politicians?label[cn]=Christian Lindner
 
 import Foundation
+import SwiftUI
 
 @MainActor
 class PoliticiansViewModel: ObservableObject {
@@ -21,12 +22,14 @@ class PoliticiansViewModel: ObservableObject {
     }
     
     func fetchPoliticians() async {
+        let trimmedSearch = searchInput.trimmingCharacters(in: .whitespaces)
         print("LOADING POLITICIANS")
-        guard let url = URL(string: "https://www.abgeordnetenwatch.de/api/v2/politicians?sort_by=last_name&sort_direction=asc&range_start=1&range_end=10") else {
+        guard let url = URL(string: "https://www.abgeordnetenwatch.de/api/v2/politicians?label[cn]=\(trimmedSearch)&sort_by=last_name&sort_direction=asc&range_end=10") else {
             print("Ungültige Politicians URL")
             errorMessage = "Ungültige Politicians URL"
             return
         }
+        
         
         isLoading = true
         errorMessage = nil

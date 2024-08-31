@@ -19,12 +19,12 @@ struct PoliticianView: View {
             }
             .padding()
         }
-        .navigationTitle("\(politician.firstName ?? "Politiker") \(politician.lastName ?? "")")
+        .navigationTitle("\(politician.label ?? "Politiker")")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar(.hidden, for: .tabBar)
     }
 }
 
-//#Preview {
-//    PoliticianView()
-//}
+#Preview {
+    PoliticianView(politician: DataClassPolitician.examplePolitician)
+}
