@@ -1,5 +1,5 @@
 //
-//  ElectionProgrammView.swift
+//  ElectionRight.swift
 //  BundestagLive
 //
 //  Created by Wangu Pullwitt on 31.08.24.
@@ -7,13 +7,13 @@
 
 import SwiftUI
 
-struct ElectionProgrammView: View {
+struct ElectionRight: View {
     var body: some View {
         NavigationStack {
             VStack {
                 
             }
-            .navigationTitle("Wahlprogramme")
+            .navigationTitle("Wahlablauf und Wahlrecht")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar(.hidden, for: .tabBar)
         }
@@ -21,5 +21,5 @@ struct ElectionProgrammView: View {
 }
 
 #Preview {
-    ElectionProgrammView()
+    ElectionRight()
 }

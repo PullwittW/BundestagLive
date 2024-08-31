@@ -15,7 +15,7 @@ struct MoreView: View {
                     // Parlamentarische Perioden
                     Section {
                         NavigationLink {
-                            
+                            ParliamentPeriode()
                         } label: {
                             Text("Parlamentarische Periode")
                         }
@@ -25,7 +25,7 @@ struct MoreView: View {
                     
                     // Wahlprogramme, bevorstehende Wahlen, Wahlrecht/-ablauf
                     Section {
-                        // Navigation Link zu den Wahlprogrammen der Partein
+                        // Navigation Link zu den Wahlprogrammen der Parteien
                         NavigationLink {
                             ElectionProgrammView()
                         } label: {
@@ -41,7 +41,7 @@ struct MoreView: View {
                         
                         // Alle Infos zum Wahlrecht und Wahlablauf
                         NavigationLink {
-                            
+                            ElectionRight()
                         } label: {
                             Text("Wahlrecht und Wahlablauf")
                         }
@@ -52,7 +52,7 @@ struct MoreView: View {
                     // Datenquelle(n) und rechtliche Hinweise
                     Section {
                         NavigationLink {
-                            
+                            Resources()
                         } label: {
                             Text("Datasources")
                         }

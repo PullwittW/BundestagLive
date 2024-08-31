@@ -15,6 +15,7 @@ struct NextElectionView: View {
             }
             .navigationTitle("Bevorstehende Wahlen")
             .navigationBarTitleDisplayMode(.inline)
+            .toolbar(.hidden, for: .tabBar)
         }
     }
 }

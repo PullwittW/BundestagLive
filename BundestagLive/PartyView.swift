@@ -18,6 +18,7 @@ struct PartyView: View {
             }
             .navigationTitle(party.label ?? "Partei")
             .navigationBarTitleDisplayMode(.inline)
+            .toolbar(.hidden, for: .tabBar)
         }
     }
 }

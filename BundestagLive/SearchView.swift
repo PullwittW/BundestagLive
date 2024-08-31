@@ -33,7 +33,7 @@ struct SearchView: View {
                     Text("Politiker")
                 }
                 
-                // Sektion für Partein des Suchergebnisses
+                // Sektion für Parteien des Suchergebnisses
                 Section {
                     ForEach(partysVM.partys ?? []) { party in
                         NavigationLink {
@@ -47,7 +47,7 @@ struct SearchView: View {
                         }
                     }
                 } header: {
-                    Text("Partein")
+                    Text("Parteien")
                 }
                 
                 Section {
@@ -57,8 +57,9 @@ struct SearchView: View {
                 }
 
             }
-            .searchable(text: $politiciansVM.searchInput)
             .navigationTitle("Suche")
+            .navigationBarBackButtonHidden()
+            .searchable(text: $politiciansVM.searchInput)
             .onAppear {
                 if ((politiciansVM.politicians?.isEmpty) != false) {
                     politiciansVM.loadPoliticians()

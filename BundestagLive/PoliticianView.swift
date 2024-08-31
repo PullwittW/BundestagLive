@@ -21,6 +21,7 @@ struct PoliticianView: View {
         }
         .navigationTitle("\(politician.firstName ?? "Politiker") \(politician.lastName ?? "")")
         .navigationBarTitleDisplayMode(.inline)
+        .toolbar(.hidden, for: .tabBar)
     }
 }
 
