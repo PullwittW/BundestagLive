@@ -3,7 +3,7 @@
 //  BundestagLive
 //
 //  Created by Wangu Pullwitt on 30.08.24.
-//
+// 
 
 import SwiftUI
 import Combine
@@ -17,62 +17,93 @@ struct SearchView: View {
     
     var body: some View {
         NavigationStack {
-            // Liste mit allen Suchergebnissen
-            List {
-                // Sektion für Abgeordnete des Suchergebnisses
-                Section {
-                    ForEach(politiciansVM.politicians ?? []) { politician in
-                        NavigationLink {
-                            PoliticianView(politician: politician)
-                        } label: {
-                            HStack {
-                                Text("\(politician.lastName ?? "Kein Nachname"), \(politician.firstName ?? "Kein Vorname")")
-                                    .foregroundColor(.primary)
-                                Spacer()
-                            }
-                        }
-                    }
-                } header: {
-                    Text("Politiker")
-                }
+            ZStack {
+                Color.theme.background.ignoresSafeArea()
                 
-                // Sektion für Parteien des Suchergebnisses
-                Section {
-                    ForEach(partysVM.partys ?? []) { party in
-                        NavigationLink {
-                            PartyView(party: party)
-                        } label: {
-                            HStack {
-                                Text("\(party.label ?? "Kein Name")")
-                                    .foregroundColor(.primary)
-                                Spacer()
+                // Liste mit allen Suchergebnissen
+                List {
+                    // Sektion für Abgeordnete des Suchergebnisses
+                    Section {
+                        if politiciansVM.searchInput.count <= 2 {
+                            ForEach(politiciansVM.politiciansDefault) { politician in
+                                NavigationLink {
+                                    PoliticianView(politician: politician)
+                                } label: {
+                                    HStack {
+                                        Text("\(politician.label ?? "Kein Name")")
+                                            .foregroundColor(.primary)
+                                        Spacer()
+                                    }
+                                }
+                            }
+                        } else {
+                            ForEach(politiciansVM.politicians ?? []) { politician in
+                                NavigationLink {
+                                    PoliticianView(politician: politician)
+                                } label: {
+                                    HStack {
+                                        Text("\(politician.lastName ?? "Kein Nachname"), \(politician.firstName ?? "Kein Vorname")")
+                                            .foregroundColor(.primary)
+                                        Spacer()
+                                    }
+                                }
                             }
                         }
+                    } header: {
+                        Text("Politiker")
                     }
-                } header: {
-                    Text("Parteien")
-                }
-                
-                Section {
-                    ForEach(fractionsVM.fractions ?? []) { fraction in
-                        NavigationLink {
-                            FractionView()
-                        } label: {
-                            HStack {
-                                Text("\(fraction.label ?? "Kein Name")")
-                                    .foregroundColor(.primary)
-                                Spacer()
+                    
+                    // Sektion für Parteien des Suchergebnisses
+                    Section {
+                        if politiciansVM.searchInput.count <= 2 {
+                            ForEach(partysVM.partysDefault ?? []) { party in
+                                NavigationLink {
+                                    PartyView(party: party)
+                                } label: {
+                                    HStack {
+                                        Text("\(party.label ?? "Kein Name")")
+                                            .foregroundColor(.primary)
+                                        Spacer()
+                                    }
+                                }
+                            }
+                        } else {
+                            ForEach(partysVM.partys ?? []) { party in
+                                NavigationLink {
+                                    PartyView(party: party)
+                                } label: {
+                                    HStack {
+                                        Text("\(party.label ?? "Kein Name")")
+                                            .foregroundColor(.primary)
+                                        Spacer()
+                                    }
+                                }
                             }
                         }
+                    } header: {
+                        Text("Parteien")
                     }
-                } header: {
-                    Text("Fraktionen")
+                    
+                    Section {
+                        ForEach(fractionsVM.fractions ?? []) { fraction in
+                            NavigationLink {
+                                FractionView()
+                            } label: {
+                                HStack {
+                                    Text("\(fraction.label ?? "Kein Name")")
+                                        .foregroundColor(.primary)
+                                    Spacer()
+                                }
+                            }
+                        }
+                    } header: {
+                        Text("Fraktionen")
+                    }
                 }
-
             }
             .navigationTitle("Suche")
-            .navigationBarBackButtonHidden()
-            .searchable(text: $politiciansVM.searchInput)
+            .navigationBarTitleDisplayMode(.large)
+            .searchable(text: $politiciansVM.searchInput, placement: .navigationBarDrawer(displayMode: .always), prompt: "Politiker*in, Partei, Fraktion...")
             .onAppear {
                 if ((politiciansVM.politicians?.isEmpty) != false) {
                     politiciansVM.loadPoliticians()

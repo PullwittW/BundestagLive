@@ -8,12 +8,19 @@
 import SwiftUI
 
 struct FractionView: View {
+    
+    @Environment(\.dismiss) private var dismiss
+    
     var body: some View {
         NavigationStack {
-            VStack {
-                
+            ZStack {
+                Color.theme.background.ignoresSafeArea()
+                VStack {
+                    
+                }
             }
             .toolbar(.hidden, for: .tabBar)
+            .navigationBarTitleDisplayMode(.inline)
         }
     }
 }

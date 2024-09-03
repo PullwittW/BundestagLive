@@ -12,14 +12,49 @@ struct HomeView: View {
     @EnvironmentObject private var politiciansVM: PoliticiansViewModel
     @EnvironmentObject private var partysVM: PartysViewModel
     @EnvironmentObject private var fractionsVM: FractionsViewModel
+    @EnvironmentObject private var pollsVM: PollsViewModel
+    
+    @State private var count: Int = 0
     
     var body: some View {
         NavigationStack {
-            VStack {
-                // Neue Abstimmungen
-                
-                // Führende Politiker im Spotlight
-                
+            ZStack {
+                Color.theme.background.ignoresSafeArea()
+                VStack(spacing: 0) {
+                    // wenn next elections = true
+                    HStack {
+                        Text("Bevorstehende Wahlen")
+                            .foregroundStyle(Color.theme.sectonTextColor)
+                        Spacer()
+                    }
+                    
+                    // Aktuelle Abstimmungen
+                    HStack {
+                        Text("Aktuelle Abstimmungen")
+                            .foregroundStyle(Color.theme.sectonTextColor)
+                        Spacer()
+                    }
+                    if pollsVM.polls?.isEmpty ?? true {
+                        VStack {
+                            ProgressView()
+                        }
+                        .padding()
+                    } else {
+                        ScrollView(.horizontal) {
+                            HStack {
+                                ForEach(pollsVM.polls ?? []) { poll in
+                                    singlePoll(poll: poll)
+                                        .frame(width: 200, height: 150)
+                                        .padding(10)
+                                }
+                            }
+                        }
+                    }
+                    
+                    Spacer()
+                }
+                .padding(.top)
+                .padding(.leading)
             }
             .navigationTitle("Neues")
             .onAppear {
@@ -32,6 +67,7 @@ struct HomeView: View {
                 if ((fractionsVM.fractions?.isEmpty) != false) {
                     fractionsVM.loadFractions(searchInput: politiciansVM.searchInput)
                 }
+                pollsVM.loadPolls(pollsSearchText: "")
             }
         }
     }

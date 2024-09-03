@@ -10,7 +10,8 @@ import SwiftUI
 struct ElectionRight: View {
     var body: some View {
         NavigationStack {
-            VStack {
+            ZStack {
+                Color.theme.background.ignoresSafeArea()
                 
             }
             .navigationTitle("Wahlablauf und Wahlrecht")

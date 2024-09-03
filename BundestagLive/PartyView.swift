@@ -10,11 +10,17 @@ import SwiftUI
 struct PartyView: View {
     
     let party: DataClassParty
+    @Environment(\.dismiss) private var dismiss
     
     var body: some View {
         NavigationStack {
-            VStack {
-                Text(party.fullName ?? "Kein Label")
+            ZStack {
+                Color.theme.background.ignoresSafeArea()
+                
+                VStack {
+                    Text(party.fullName ?? "Kein Label")
+                }
+                .padding()
             }
             .navigationTitle(party.label ?? "Partei")
             .navigationBarTitleDisplayMode(.inline)

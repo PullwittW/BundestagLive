@@ -10,54 +10,71 @@ import SwiftUI
 struct MoreView: View {
     var body: some View {
         NavigationStack {
-            VStack {
-                List {
-                    // Parlamentarische Perioden
-                    Section {
-                        NavigationLink {
-                            ParliamentPeriode()
-                        } label: {
-                            Text("Parlamentarische Periode")
-                        }
-                    } header: {
-                        Text("Das Parlament")
-                    }
-                    
-                    // Wahlprogramme, bevorstehende Wahlen, Wahlrecht/-ablauf
-                    Section {
-                        // Navigation Link zu den Wahlprogrammen der Parteien
-                        NavigationLink {
-                            ElectionProgrammView()
-                        } label: {
-                            Text("Wahlprogramme")
+            ZStack {
+                Color.theme.background.ignoresSafeArea()
+                
+                VStack {
+                    List {
+                        // Parlamentarische Perioden
+                        Section {
+                            NavigationLink {
+                                ParliamentPeriode()
+                            } label: {
+                                Text("Periode")
+                            }
+                        } header: {
+                            Text("Bundestag")
                         }
                         
-                        // Bevorstehende Wahlen
-                        NavigationLink {
-                            NextElectionView()
-                        } label: {
-                            Text("Bevorstehende Wahlen")
+                        // Wahlprogramme, bevorstehende Wahlen, Wahlrecht/-ablauf
+                        Section {
+                            // Navigation Link zu den Wahlprogrammen der Parteien
+                            NavigationLink {
+                                ElectionProgrammView()
+                            } label: {
+                                Text("Wahlprogramme")
+                            }
+                            
+                            // Bevorstehende Wahlen
+                            NavigationLink {
+                                NextElectionView()
+                            } label: {
+                                Text("Bevorstehende Wahlen")
+                            }
+                            
+                            // Vergangene Wahlen
+                            NavigationLink {
+                                PreviousElections()
+                            } label: {
+                                Text("Vergangene Wahlen")
+                            }
+                            
+                            // Alle Infos zum Wahlrecht und Wahlablauf
+                            NavigationLink {
+                                ElectionRight()
+                            } label: {
+                                Text("Wahlrecht und Wahlablauf")
+                            }
+                        } header: {
+                            Text("Wahlen")
                         }
                         
-                        // Alle Infos zum Wahlrecht und Wahlablauf
-                        NavigationLink {
-                            ElectionRight()
-                        } label: {
-                            Text("Wahlrecht und Wahlablauf")
+                        // Datenquelle(n) und rechtliche Hinweise
+                        Section {
+                            NavigationLink {
+                                Resources()
+                            } label: {
+                                Text("Datasources")
+                            }
+                            
+                            NavigationLink {
+                                Legals()
+                            } label: {
+                                Text("Datenhauftungsausschluss")
+                            }
+                        } header: {
+                            Text("Daten und Rechtliches")
                         }
-                    } header: {
-                        Text("Wahlen")
-                    }
-                    
-                    // Datenquelle(n) und rechtliche Hinweise
-                    Section {
-                        NavigationLink {
-                            Resources()
-                        } label: {
-                            Text("Datasources")
-                        }
-                    } header: {
-                        Text("Rechtliches")
                     }
                 }
             }

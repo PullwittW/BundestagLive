@@ -8,16 +8,21 @@
 import SwiftUI
 
 struct PoliticianView: View {
+    @Environment(\.dismiss) private var dismiss
     let politician: DataClassPolitician
     
     var body: some View {
         NavigationStack {
-            VStack {
-                Text(politician.firstName ?? "Kein Name gefunden")
-                Text(politician.lastName ?? "Kein Name gefunden")
-                Text(politician.party?.label ?? "Keine Partei gefunden")
+            ZStack {
+                Color.theme.background.ignoresSafeArea()
+                
+                VStack {
+                    Text(politician.firstName ?? "Kein Name gefunden")
+                    Text(politician.lastName ?? "Kein Name gefunden")
+                    Text(politician.party?.label ?? "Keine Partei gefunden")
+                }
+                .padding()
             }
-            .padding()
         }
         .navigationTitle("\(politician.label ?? "Politiker")")
         .navigationBarTitleDisplayMode(.inline)

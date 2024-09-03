@@ -29,10 +29,11 @@ struct TabBarView: View {
             
             PollsView()
                 .tabItem {
-                    Image(systemName: "menucard")
+                    Image(systemName: "chart.bar.doc.horizontal") // doc.questionmark, list.clipboard, doc.plaintext
                     Text("Abstimmungen")
                 }
                 .tag(2)
+                .environmentObject(PollsViewModel())
             
             MoreView()
                 .tabItem {

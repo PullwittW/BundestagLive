@@ -1,13 +1,13 @@
 //
-//  NextElectionView.swift
+//  PreviousElections.swift
 //  BundestagLive
 //
-//  Created by Wangu Pullwitt on 31.08.24.
+//  Created by Wangu Pullwitt on 03.09.24.
 //
 
 import SwiftUI
 
-struct NextElectionView: View {
+struct PreviousElections: View {
     var body: some View {
         NavigationStack {
             ZStack {
@@ -15,7 +15,7 @@ struct NextElectionView: View {
                 
                 
             }
-            .navigationTitle("Bevorstehende Wahlen")
+            .navigationTitle("Vergangene Wahlen")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar(.hidden, for: .tabBar)
         }
@@ -23,5 +23,5 @@ struct NextElectionView: View {
 }
 
 #Preview {
-    NextElectionView()
+    PreviousElections()
 }

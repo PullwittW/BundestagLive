@@ -11,7 +11,13 @@ struct ParliamentPeriode: View {
     var body: some View {
         NavigationStack {
             VStack {
+                Image(.bundestagSilhouette)
+                    .resizable()
+                    .scaledToFit()
+                    .padding()
                 
+                
+                Spacer()
             }
             .navigationTitle("Das Parlament")
             .navigationBarTitleDisplayMode(.inline)
