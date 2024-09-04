@@ -33,7 +33,6 @@ struct PollsView: View {
             .searchable(text: $pollsVM.pollsSearchText,placement: .navigationBarDrawer(displayMode: .always), prompt: "Suche nach Abstimmungen...")
             .onAppear {
                 if ((pollsVM.polls?.isEmpty) != false) {
-                    print("Is empty")
                     pollsVM.loadPolls(pollsSearchText: pollsVM.pollsSearchText)
                 }
             }
@@ -57,7 +56,7 @@ struct PollsView: View {
     func onInputChangeDelayed() {
         let trimmedSearch = pollsVM.pollsSearchText.trimmingCharacters(in: .whitespaces)
         print("Input hat sich seit 1 Sekunde nicht geändert: \(trimmedSearch)")
-        pollsVM.loadPolls(pollsSearchText: pollsVM.pollsSearchText)
+        pollsVM.loadPolls(pollsSearchText: trimmedSearch)
     }
 }
 

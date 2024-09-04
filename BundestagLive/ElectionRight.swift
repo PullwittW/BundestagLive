@@ -14,7 +14,7 @@ struct ElectionRight: View {
                 Color.theme.background.ignoresSafeArea()
                 
             }
-            .navigationTitle("Wahlablauf und Wahlrecht")
+            .navigationTitle("Wahlrecht und Wahlablauf")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar(.hidden, for: .tabBar)
         }

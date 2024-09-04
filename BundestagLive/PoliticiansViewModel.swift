@@ -27,6 +27,7 @@ class PoliticiansViewModel: ObservableObject {
     @Published var errorMessage: String?
     @Published var isLoading: Bool?
     @Published var searchInput: String = ""
+    @Published var noInternet: Bool = false
     
     @State private var defaultURL = URL(string: "https://www.abgeordnetenwatch.de/api/v2/politicians?id[in]=[118987, 79316, 119742, 139064, 78886, 79455, 66924, 79475, 108379, 135391]&sort_by=last_name&sort_direction=asc&range_end=10")
     
@@ -66,6 +67,10 @@ class PoliticiansViewModel: ObservableObject {
         } catch {
             errorMessage = "Fehler: \(error.localizedDescription)"
             print("Fehler beim Abrufen der Politicians-Daten: \(error)")
+            if error.localizedDescription.contains("offline") || error.localizedDescription.contains("SSL") {
+                print("KEINE INTERNETVERBINDUNG")
+                noInternet = true
+            }
         }
         
         isLoading = false

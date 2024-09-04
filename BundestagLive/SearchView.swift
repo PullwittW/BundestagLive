@@ -42,7 +42,7 @@ struct SearchView: View {
                                     PoliticianView(politician: politician)
                                 } label: {
                                     HStack {
-                                        Text("\(politician.lastName ?? "Kein Nachname"), \(politician.firstName ?? "Kein Vorname")")
+                                        Text(politician.label ?? "Name Abgeordneter")
                                             .foregroundColor(.primary)
                                         Spacer()
                                     }
@@ -61,7 +61,7 @@ struct SearchView: View {
                                     PartyView(party: party)
                                 } label: {
                                     HStack {
-                                        Text("\(party.label ?? "Kein Name")")
+                                        Text("\(party.fullName ?? "Kein Name")")
                                             .foregroundColor(.primary)
                                         Spacer()
                                     }
@@ -73,7 +73,7 @@ struct SearchView: View {
                                     PartyView(party: party)
                                 } label: {
                                     HStack {
-                                        Text("\(party.label ?? "Kein Name")")
+                                        Text("\(party.fullName ?? "Kein Name")")
                                             .foregroundColor(.primary)
                                         Spacer()
                                     }

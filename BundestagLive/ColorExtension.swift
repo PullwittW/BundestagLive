@@ -17,4 +17,5 @@ struct ColorTheme {
     let background = Color("BackgroundColor")
     let textColor = Color("TextColor")
     let sectonTextColor = Color("SecondTextColor")
+    let launchColor = Color("launchColor")
 }

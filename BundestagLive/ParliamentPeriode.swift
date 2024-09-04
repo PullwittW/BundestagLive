@@ -16,6 +16,41 @@ struct ParliamentPeriode: View {
                     .scaledToFit()
                     .padding()
                 
+                List {
+                    NavigationLink {
+                        
+                    } label: {
+                        HStack {
+                            Text("Bundeskanzler: ")
+                            + Text("Olaf Scholz (SPD)")
+                                .foregroundStyle(Color.theme.accent)
+                        }
+                    }
+                    NavigationLink {
+                        
+                    } label: {
+                        HStack {
+                            Text("Bundestagspräsidentin: ")
+                            + Text("Bärbel Bas (SPD)")
+                                .foregroundStyle(Color.theme.accent)
+                        }
+                    }
+                    NavigationLink {
+                        
+                    } label: {
+                        HStack {
+                            Text("Koalition: ")
+                            + Text("SPD")
+                                .foregroundStyle(Color.theme.accent)
+                            + Text(" , ")
+                            + Text("Bündnis90/Die Grünen")
+                                .foregroundStyle(Color.theme.accent)
+                            + Text(" , ")
+                            + Text("FDP")
+                                .foregroundStyle(Color.theme.accent)
+                        }
+                    }
+                }
                 
                 Spacer()
             }

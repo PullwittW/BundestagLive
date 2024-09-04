@@ -8,16 +8,40 @@
 import SwiftUI
 
 struct PreviousElections: View {
+    
+    @EnvironmentObject private var parliamentsVM: ParliamentsViewModel
+    
     var body: some View {
         NavigationStack {
             ZStack {
                 Color.theme.background.ignoresSafeArea()
                 
-                
+                if parliamentsVM.formerParliaments?.isEmpty ?? true {
+                    VStack {
+                        ProgressView()
+                    }
+                    .padding()
+                } else {
+                    ScrollView {
+                        VStack(spacing: 0) {
+                            ForEach(parliamentsVM.formerParliaments ?? []) { parliament in
+                                SingleElectionView(nextParliament: parliament)
+                                    .frame(height: 100)
+                                    .padding(.vertical, 5)
+                            }
+                        }
+                    }
+                    .padding()
+                }
             }
             .navigationTitle("Vergangene Wahlen")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar(.hidden, for: .tabBar)
+            .onAppear {
+                if ((parliamentsVM.formerParliaments?.isEmpty) != false) {
+                    parliamentsVM.loadFormerParliament()
+                }
+            }
         }
     }
 }

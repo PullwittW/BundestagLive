@@ -13,6 +13,7 @@ struct HomeView: View {
     @EnvironmentObject private var partysVM: PartysViewModel
     @EnvironmentObject private var fractionsVM: FractionsViewModel
     @EnvironmentObject private var pollsVM: PollsViewModel
+    @EnvironmentObject private var parliamentsVM: ParliamentsViewModel
     
     @State private var count: Int = 0
     
@@ -21,11 +22,31 @@ struct HomeView: View {
             ZStack {
                 Color.theme.background.ignoresSafeArea()
                 VStack(spacing: 0) {
-                    // wenn next elections = true
-                    HStack {
-                        Text("Bevorstehende Wahlen")
-                            .foregroundStyle(Color.theme.sectonTextColor)
-                        Spacer()
+                    // Bevorstehende Wahlen
+                    if parliamentsVM.futureParliaments?.isEmpty ?? true {
+                        VStack {
+                            ProgressView()
+                        }
+                        .padding()
+                    } else {
+                        VStack {
+                            HStack {
+                                Text("Bevorstehende Wahlen")
+                                    .foregroundStyle(Color.theme.sectonTextColor)
+                                Spacer()
+                            }
+                            ScrollView(.horizontal) {
+                                HStack {
+                                    ForEach(parliamentsVM.futureParliaments ?? []) { parliament in
+                                        SingleElectionView(nextParliament: parliament)
+                                            .frame(height: 100)
+                                            .padding(.trailing, 10)
+                                            .padding(.vertical, 10)
+                                    }
+                                }
+                                .padding(.bottom, 5)
+                            }
+                        }
                     }
                     
                     // Aktuelle Abstimmungen
@@ -43,9 +64,14 @@ struct HomeView: View {
                         ScrollView(.horizontal) {
                             HStack {
                                 ForEach(pollsVM.polls ?? []) { poll in
-                                    singlePoll(poll: poll)
-                                        .frame(width: 200, height: 150)
-                                        .padding(10)
+                                    NavigationLink {
+                                        PollDetailView(poll: poll)
+                                    } label: {
+                                        singlePoll(poll: poll)
+                                            .frame(width: 200, height: 150)
+                                            .padding(.trailing, 10)
+                                            .padding(.vertical, 10)
+                                    }
                                 }
                             }
                         }
@@ -67,7 +93,28 @@ struct HomeView: View {
                 if ((fractionsVM.fractions?.isEmpty) != false) {
                     fractionsVM.loadFractions(searchInput: politiciansVM.searchInput)
                 }
-                pollsVM.loadPolls(pollsSearchText: "")
+                if ((pollsVM.polls?.isEmpty) != false) {
+                    pollsVM.loadPolls(pollsSearchText: politiciansVM.searchInput)
+                }
+                if ((parliamentsVM.futureParliaments?.isEmpty) != false) {
+                    parliamentsVM.loadFutureParliaments()
+                }
+                if ((parliamentsVM.formerParliaments?.isEmpty) != false) {
+                    parliamentsVM.loadFormerParliament()
+                }
+            }
+            .alert("Du bist nicht mit dem Internet verbunden", isPresented: $politiciansVM.noInternet) {
+                Button {
+                    politiciansVM.loadPoliticians()
+                    partysVM.loadPartys(searchInput: politiciansVM.searchInput)
+                    fractionsVM.loadFractions(searchInput: politiciansVM.searchInput)
+                    pollsVM.loadPolls(pollsSearchText: politiciansVM.searchInput)
+                    parliamentsVM.loadFutureParliaments()
+                    parliamentsVM.loadFormerParliament()
+                } label: {
+                    Text("Neu laden...")
+                }
+
             }
         }
     }
