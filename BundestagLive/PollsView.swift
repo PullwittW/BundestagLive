@@ -71,12 +71,14 @@ struct singlePoll: View {
                 .strokeBorder(style: StrokeStyle(lineWidth: 3))
             VStack {
                 Text(poll.label ?? "Titel")
-                    .padding()
+                    .padding(.horizontal)
+                    .padding(.top)
                 Spacer()
                 ZStack {
-                    Circle()
+                    RoundedRectangle(cornerRadius: 6)
                         .fill(poll.fieldAccepted ?? false ? Color.green : Color.red)
-                        .frame(width: 60, height: 60)
+                        .frame(height: 70)
+                        .frame(maxWidth: .infinity)
                     ZStack {
                         Circle()
                             .fill(Color.white)
@@ -84,9 +86,7 @@ struct singlePoll: View {
                         Image(systemName: poll.fieldAccepted ?? false ? "checkmark" : "xmark")
                     }
                 }
-                .padding(.bottom)
-                
-                Spacer()
+                .padding(5)
             }
         }
     }

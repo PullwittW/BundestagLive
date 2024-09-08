@@ -22,6 +22,9 @@ struct HomeView: View {
             ZStack {
                 Color.theme.background.ignoresSafeArea()
                 VStack(spacing: 0) {
+                    // Aktuellen Bundestag abbilden
+                    
+                    
                     // Bevorstehende Wahlen
                     if parliamentsVM.futureParliaments?.isEmpty ?? true {
                         VStack {
@@ -94,7 +97,7 @@ struct HomeView: View {
                     fractionsVM.loadFractions(searchInput: politiciansVM.searchInput)
                 }
                 if ((pollsVM.polls?.isEmpty) != false) {
-                    pollsVM.loadPolls(pollsSearchText: politiciansVM.searchInput)
+                    pollsVM.loadPolls(pollsSearchText: pollsVM.pollsSearchText)
                 }
                 if ((parliamentsVM.futureParliaments?.isEmpty) != false) {
                     parliamentsVM.loadFutureParliaments()
@@ -108,7 +111,7 @@ struct HomeView: View {
                     politiciansVM.loadPoliticians()
                     partysVM.loadPartys(searchInput: politiciansVM.searchInput)
                     fractionsVM.loadFractions(searchInput: politiciansVM.searchInput)
-                    pollsVM.loadPolls(pollsSearchText: politiciansVM.searchInput)
+                    pollsVM.loadPolls(pollsSearchText: pollsVM.pollsSearchText)
                     parliamentsVM.loadFutureParliaments()
                     parliamentsVM.loadFormerParliament()
                 } label: {
