@@ -22,7 +22,7 @@ struct ParliamentPeriode: View {
                 
                 List {
                     NavigationLink {
-                        SinglePoliticianView(politician: politiciansVM.politiciansDefault[9])
+                        SinglePoliticianView(politician: politiciansVM.politiciansDefault[8])
                     } label: {
                         VStack(alignment: .leading) {
                             Text("Bundespräsident: ")
@@ -31,7 +31,7 @@ struct ParliamentPeriode: View {
                         }
                     }
                     NavigationLink {
-                        SinglePoliticianView(politician: politiciansVM.politiciansDefault[8])
+                        SinglePoliticianView(politician: politiciansVM.politiciansDefault[7])
                     } label: {
                         VStack(alignment: .leading) {
                             Text("Bundeskanzler: ")

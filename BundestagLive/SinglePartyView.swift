@@ -23,7 +23,7 @@ struct SinglePartyView: View {
                 .padding()
             }
             .navigationTitle(party.label ?? "Partei")
-            .navigationBarTitleDisplayMode(.large)
+            .navigationBarTitleDisplayMode(.inline)
             .toolbar(.hidden, for: .tabBar)
         }
     }

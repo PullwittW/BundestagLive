@@ -18,6 +18,9 @@
 		72C457582C82611E006E1234 /* PoliticiansViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C457572C82611E006E1234 /* PoliticiansViewModel.swift */; };
 		72C4575A2C826136006E1234 /* PoliticiansModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C457592C826136006E1234 /* PoliticiansModel.swift */; };
 		72C4575D2C826FC1006E1234 /* PollsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C4575C2C826FC0006E1234 /* PollsView.swift */; };
+		72C51BEC2C92FB0F00266719 /* SFSafariView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C51BEB2C92FB0F00266719 /* SFSafariView.swift */; };
+		72C51BEE2C92FB7400266719 /* SwiftUILinksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C51BED2C92FB7400266719 /* SwiftUILinksView.swift */; };
+		72C51BF02C9304E600266719 /* halfCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C51BEF2C9304E500266719 /* halfCircle.swift */; };
 		72C9D3FA2C88A0A9002C5243 /* SingleElectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C9D3F92C88A0A9002C5243 /* SingleElectionView.swift */; };
 		72CD2DDE2C84782B00E655C4 /* PartyProgrammView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72CD2DDD2C84782B00E655C4 /* PartyProgrammView.swift */; };
 		72CD2DE02C8479FC00E655C4 /* ElectionProgramms.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72CD2DDF2C8479FC00E655C4 /* ElectionProgramms.swift */; };
@@ -73,6 +76,9 @@
 		72C457572C82611E006E1234 /* PoliticiansViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoliticiansViewModel.swift; sourceTree = "<group>"; };
 		72C457592C826136006E1234 /* PoliticiansModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoliticiansModel.swift; sourceTree = "<group>"; };
 		72C4575C2C826FC0006E1234 /* PollsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollsView.swift; sourceTree = "<group>"; };
+		72C51BEB2C92FB0F00266719 /* SFSafariView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFSafariView.swift; sourceTree = "<group>"; };
+		72C51BED2C92FB7400266719 /* SwiftUILinksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUILinksView.swift; sourceTree = "<group>"; };
+		72C51BEF2C9304E500266719 /* halfCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = halfCircle.swift; sourceTree = "<group>"; };
 		72C9D3F92C88A0A9002C5243 /* SingleElectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleElectionView.swift; sourceTree = "<group>"; };
 		72CD2DDD2C84782B00E655C4 /* PartyProgrammView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartyProgrammView.swift; sourceTree = "<group>"; };
 		72CD2DDF2C8479FC00E655C4 /* ElectionProgramms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElectionProgramms.swift; sourceTree = "<group>"; };
@@ -215,6 +221,15 @@
 			name = ViewModels;
 			sourceTree = "<group>";
 		};
+		72C51BEA2C92FAF400266719 /* Safari */ = {
+			isa = PBXGroup;
+			children = (
+				72C51BEB2C92FB0F00266719 /* SFSafariView.swift */,
+				72C51BED2C92FB7400266719 /* SwiftUILinksView.swift */,
+			);
+			name = Safari;
+			sourceTree = "<group>";
+		};
 		72C9D3F82C88A073002C5243 /* Elections */ = {
 			isa = PBXGroup;
 			children = (
@@ -274,6 +289,7 @@
 		72CD2DF72C851E8B00E655C4 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				72C51BEA2C92FAF400266719 /* Safari */,
 				72CD2DF82C851EA000E655C4 /* ColorExtension.swift */,
 				72D51B6A2C873B6300785093 /* Formatter.swift */,
 			);
@@ -305,6 +321,7 @@
 			children = (
 				72CF332C2C830822002D7BCD /* HomeView.swift */,
 				72CF33362C83191C002D7BCD /* TabBarView.swift */,
+				72C51BEF2C9304E500266719 /* halfCircle.swift */,
 			);
 			name = Home;
 			sourceTree = "<group>";
@@ -505,6 +522,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				72C51BEE2C92FB7400266719 /* SwiftUILinksView.swift in Sources */,
 				72CD2DEA2C84801D00E655C4 /* SingleElectionProgrammView.swift in Sources */,
 				72CF33472C833886002D7BCD /* FractionViewModel.swift in Sources */,
 				72CF33352C830895002D7BCD /* NextElectionView.swift in Sources */,
@@ -518,6 +536,7 @@
 				72CF331E2C83014A002D7BCD /* PartyViewModel.swift in Sources */,
 				72C9D3FA2C88A0A9002C5243 /* SingleElectionView.swift in Sources */,
 				72CF333B2C832572002D7BCD /* ElectionRight.swift in Sources */,
+				72C51BEC2C92FB0F00266719 /* SFSafariView.swift in Sources */,
 				72CF332D2C830822002D7BCD /* HomeView.swift in Sources */,
 				72CF33222C830377002D7BCD /* PartysViewModel.swift in Sources */,
 				72C457532C825500006E1234 /* SinglePoliticianView.swift in Sources */,
@@ -551,6 +570,7 @@
 				72CD2DE02C8479FC00E655C4 /* ElectionProgramms.swift in Sources */,
 				72CD2DFB2C852C6D00E655C4 /* PollDetailView.swift in Sources */,
 				72CF33492C833A10002D7BCD /* FractionsViewModel.swift in Sources */,
+				72C51BF02C9304E600266719 /* halfCircle.swift in Sources */,
 				72CF33372C83191C002D7BCD /* TabBarView.swift in Sources */,
 				72CD2DF92C851EA000E655C4 /* ColorExtension.swift in Sources */,
 			);

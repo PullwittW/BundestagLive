@@ -57,7 +57,7 @@ struct PollDetailView: View {
 
                         ForEach(poll.fieldRelatedLinks ?? [], id: \.self) { link in
                             HStack {
-                                Text(link.title ?? "title")
+                                Text("\(link.title ?? "www.wangupullwitt.de")")
                                     .padding()
                                     .foregroundStyle(Color.theme.accent)
                                 Spacer()
@@ -74,8 +74,6 @@ struct PollDetailView: View {
                         }
                     }
                     .padding(.top)
-                    
-                    
                     Spacer()
                 }
                 .padding(.horizontal)
@@ -85,7 +83,9 @@ struct PollDetailView: View {
             .toolbar(.hidden, for: .tabBar)
             .onAppear {
                 pollDescription = String.htmlStringFormatter.htmlToPlainText(poll.fieldIntro ?? "<h1>Willkommen</h1><p>Dies ist ein <b>Beispiel</b> für ein Intro-Text.</p>")
+                print(poll.fieldRelatedLinks?.first?.uri ?? "")
             }
+            .handleOpenURLInApp()
         }
     }
 }

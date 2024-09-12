@@ -81,7 +81,7 @@ struct SinglePoliticianView: View {
             }
         }
         .navigationTitle("\(politician.label ?? "Politiker")")
-        .navigationBarTitleDisplayMode(.large)
+        .navigationBarTitleDisplayMode(.inline)
         .toolbar(.hidden, for: .tabBar)
     }
 }

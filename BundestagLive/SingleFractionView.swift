@@ -20,7 +20,7 @@ struct SingleFractionView: View {
                 }
             }
             .toolbar(.hidden, for: .tabBar)
-            .navigationBarTitleDisplayMode(.large)
+            .navigationBarTitleDisplayMode(.inline)
         }
     }
 }
