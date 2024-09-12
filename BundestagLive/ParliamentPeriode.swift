@@ -8,6 +8,10 @@
 import SwiftUI
 
 struct ParliamentPeriode: View {
+    
+    @EnvironmentObject private var politiciansVM: PoliticiansViewModel
+    @EnvironmentObject private var partysVM: PartysViewModel
+    
     var body: some View {
         NavigationStack {
             VStack {
@@ -18,37 +22,54 @@ struct ParliamentPeriode: View {
                 
                 List {
                     NavigationLink {
-                        
+                        SinglePoliticianView(politician: politiciansVM.politiciansDefault[9])
                     } label: {
-                        HStack {
+                        VStack(alignment: .leading) {
+                            Text("Bundespräsident: ")
+                            Text("Frank-Walter Steinmeier (SPD)")
+                                .foregroundStyle(Color.theme.accent)
+                        }
+                    }
+                    NavigationLink {
+                        SinglePoliticianView(politician: politiciansVM.politiciansDefault[8])
+                    } label: {
+                        VStack(alignment: .leading) {
                             Text("Bundeskanzler: ")
-                            + Text("Olaf Scholz (SPD)")
+                            Text("Olaf Scholz (SPD)")
                                 .foregroundStyle(Color.theme.accent)
                         }
                     }
                     NavigationLink {
-                        
+                        SinglePoliticianView(politician: politiciansVM.politiciansDefault[1])
                     } label: {
-                        HStack {
+                        VStack(alignment: .leading) {
                             Text("Bundestagspräsidentin: ")
-                            + Text("Bärbel Bas (SPD)")
+                            Text("Bärbel Bas (SPD)")
                                 .foregroundStyle(Color.theme.accent)
                         }
                     }
-                    NavigationLink {
-                        
-                    } label: {
-                        HStack {
-                            Text("Koalition: ")
-                            + Text("SPD")
-                                .foregroundStyle(Color.theme.accent)
-                            + Text(" , ")
-                            + Text("Bündnis90/Die Grünen")
-                                .foregroundStyle(Color.theme.accent)
-                            + Text(" , ")
-                            + Text("FDP")
+                    Section {
+                        NavigationLink {
+                            SinglePartyView(party: partysVM.partysDefault![9])
+                        } label: {
+                            Text("SPD")
                                 .foregroundStyle(Color.theme.accent)
                         }
+                        NavigationLink {
+                            SinglePartyView(party: partysVM.partysDefault![5])
+                        } label: {
+                            Text("Bündnis 90/Die Grünen")
+                                .foregroundStyle(Color.theme.accent)
+                        }
+                        NavigationLink {
+                            SinglePartyView(party: partysVM.partysDefault![6])
+                        } label: {
+                            Text("FDP")
+                                .foregroundStyle(Color.theme.accent)
+                        }
+                        
+                    } header: {
+                        Text("Koalition - 'Ampel'")
                     }
                 }
                 

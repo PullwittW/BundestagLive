@@ -14,6 +14,7 @@ struct HomeView: View {
     @EnvironmentObject private var fractionsVM: FractionsViewModel
     @EnvironmentObject private var pollsVM: PollsViewModel
     @EnvironmentObject private var parliamentsVM: ParliamentsViewModel
+    @EnvironmentObject private var surveysVM: SurveysViewModel
     
     @State private var count: Int = 0
     
@@ -41,8 +42,8 @@ struct HomeView: View {
                             ScrollView(.horizontal) {
                                 HStack {
                                     ForEach(parliamentsVM.futureParliaments ?? []) { parliament in
-                                        SingleElectionView(nextParliament: parliament)
-                                            .frame(height: 100)
+                                        SingleElectionView(parliament: parliament)
+                                            .frame(height: 90)
                                             .padding(.trailing, 10)
                                             .padding(.vertical, 10)
                                     }
@@ -66,7 +67,7 @@ struct HomeView: View {
                     } else {
                         ScrollView(.horizontal) {
                             HStack {
-                                ForEach(pollsVM.polls ?? []) { poll in
+                                ForEach(pollsVM.polls?.prefix(5) ?? []) { poll in
                                     NavigationLink {
                                         PollDetailView(poll: poll)
                                     } label: {
@@ -87,26 +88,29 @@ struct HomeView: View {
             }
             .navigationTitle("Neues")
             .onAppear {
-                if ((politiciansVM.politicians?.isEmpty) != false) {
-                    politiciansVM.loadPoliticians()
-                }
-                if ((partysVM.partys?.isEmpty) != false) {
-                    partysVM.loadPartys(searchInput: politiciansVM.searchInput)
-                }
-                if ((fractionsVM.fractions?.isEmpty) != false) {
-                    fractionsVM.loadFractions(searchInput: politiciansVM.searchInput)
-                }
+//                if ((politiciansVM.politicians?.isEmpty) != false) {
+//                    politiciansVM.loadPoliticians()
+//                }
+//                if ((partysVM.partys?.isEmpty) != false) {
+//                    partysVM.loadPartys(searchInput: politiciansVM.searchInput)
+//                }
+//                if ((fractionsVM.fractions?.isEmpty) != false) {
+//                    fractionsVM.loadFractions(searchInput: politiciansVM.searchInput)
+//                }
                 if ((pollsVM.polls?.isEmpty) != false) {
                     pollsVM.loadPolls(pollsSearchText: pollsVM.pollsSearchText)
                 }
                 if ((parliamentsVM.futureParliaments?.isEmpty) != false) {
                     parliamentsVM.loadFutureParliaments()
                 }
-                if ((parliamentsVM.formerParliaments?.isEmpty) != false) {
-                    parliamentsVM.loadFormerParliament()
-                }
+//                if ((parliamentsVM.formerParliaments?.isEmpty) != false) {
+//                    parliamentsVM.loadFormerParliament()
+//                }
+//                if ((surveysVM.surveys?.isEmpty) != false) {
+//                    surveysVM.loadSurveys()
+//                }
             }
-            .alert("Du bist nicht mit dem Internet verbunden", isPresented: $politiciansVM.noInternet) {
+            .alert("Du bist nicht mit dem Internet verbunden", isPresented: $politiciansVM.noInternetPolitician) {
                 Button {
                     politiciansVM.loadPoliticians()
                     partysVM.loadPartys(searchInput: politiciansVM.searchInput)
@@ -114,6 +118,7 @@ struct HomeView: View {
                     pollsVM.loadPolls(pollsSearchText: pollsVM.pollsSearchText)
                     parliamentsVM.loadFutureParliaments()
                     parliamentsVM.loadFormerParliament()
+//                    surveysVM.loadSurveys()
                 } label: {
                     Text("Neu laden...")
                 }

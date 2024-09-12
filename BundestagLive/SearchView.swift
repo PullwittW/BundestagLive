@@ -27,7 +27,7 @@ struct SearchView: View {
                         if politiciansVM.searchInput.count <= 2 {
                             ForEach(politiciansVM.politiciansDefault) { politician in
                                 NavigationLink {
-                                    PoliticianView(politician: politician)
+                                    SinglePoliticianView(politician: politician)
                                 } label: {
                                     HStack {
                                         Text("\(politician.label ?? "Kein Name")")
@@ -39,7 +39,7 @@ struct SearchView: View {
                         } else {
                             ForEach(politiciansVM.politicians ?? []) { politician in
                                 NavigationLink {
-                                    PoliticianView(politician: politician)
+                                    SinglePoliticianView(politician: politician)
                                 } label: {
                                     HStack {
                                         Text(politician.label ?? "Name Abgeordneter")
@@ -58,7 +58,7 @@ struct SearchView: View {
                         if politiciansVM.searchInput.count <= 2 {
                             ForEach(partysVM.partysDefault ?? []) { party in
                                 NavigationLink {
-                                    PartyView(party: party)
+                                    SinglePartyView(party: party)
                                 } label: {
                                     HStack {
                                         Text("\(party.fullName ?? "Kein Name")")
@@ -70,7 +70,7 @@ struct SearchView: View {
                         } else {
                             ForEach(partysVM.partys ?? []) { party in
                                 NavigationLink {
-                                    PartyView(party: party)
+                                    SinglePartyView(party: party)
                                 } label: {
                                     HStack {
                                         Text("\(party.fullName ?? "Kein Name")")
@@ -87,7 +87,7 @@ struct SearchView: View {
                     Section {
                         ForEach(fractionsVM.fractions ?? []) { fraction in
                             NavigationLink {
-                                FractionView()
+                                SingleFractionView()
                             } label: {
                                 HStack {
                                     Text("\(fraction.label ?? "Kein Name")")

@@ -58,7 +58,7 @@ struct Field: Codable {
 }
 
 // MARK: - FieldRelatedLink
-struct FieldRelatedLink: Codable {
+struct FieldRelatedLink: Codable, Hashable {
     let uri: String?
     let title: String?
 }

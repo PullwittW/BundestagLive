@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct PartyView: View {
+struct SinglePartyView: View {
     
     let party: DataClassParty
     @Environment(\.dismiss) private var dismiss
@@ -23,7 +23,7 @@ struct PartyView: View {
                 .padding()
             }
             .navigationTitle(party.label ?? "Partei")
-            .navigationBarTitleDisplayMode(.inline)
+            .navigationBarTitleDisplayMode(.large)
             .toolbar(.hidden, for: .tabBar)
         }
     }

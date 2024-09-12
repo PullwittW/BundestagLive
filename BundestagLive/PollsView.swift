@@ -14,15 +14,17 @@ struct PollsView: View {
     
     var body: some View {
         NavigationStack {
-            VStack { 
+            VStack {
                 ScrollView {
-                    ForEach(pollsVM.polls ?? []) { poll in
-                        NavigationLink {
-                            PollDetailView(poll: poll)
-                        } label: {
-                            singlePoll(poll: poll)
-                                .padding(.horizontal)
-                                .padding(.bottom, 10)
+                    LazyVStack {
+                        ForEach(pollsVM.polls ?? []) { poll in
+                            NavigationLink {
+                                PollDetailView(poll: poll)
+                            } label: {
+                                singlePoll(poll: poll)
+                                    .padding(.horizontal)
+                                    .padding(.bottom, 10)
+                            }
                         }
                     }
                 }
@@ -71,6 +73,7 @@ struct singlePoll: View {
                 .strokeBorder(style: StrokeStyle(lineWidth: 3))
             VStack {
                 Text(poll.label ?? "Titel")
+                    .bold()
                     .padding(.horizontal)
                     .padding(.top)
                 Spacer()
@@ -84,6 +87,7 @@ struct singlePoll: View {
                             .fill(Color.white)
                             .frame(width: 35, height: 35)
                         Image(systemName: poll.fieldAccepted ?? false ? "checkmark" : "xmark")
+                            .foregroundStyle(poll.fieldAccepted ?? false ? Color.green : Color.red)
                     }
                 }
                 .padding(5)

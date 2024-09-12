@@ -25,9 +25,8 @@ struct PreviousElections: View {
                     ScrollView {
                         VStack(spacing: 0) {
                             ForEach(parliamentsVM.formerParliaments ?? []) { parliament in
-                                SingleElectionView(nextParliament: parliament)
-                                    .frame(height: 100)
-                                    .padding(.vertical, 5)
+                                SingleElectionView(parliament: parliament)
+                                    .padding(.bottom, 10)
                             }
                         }
                     }

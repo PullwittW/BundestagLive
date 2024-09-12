@@ -22,7 +22,7 @@ class PollsViewModel: ObservableObject {
     
     func fetchPolls(pollsSearchText: String) async {
         print("LOADING Polls")
-        guard let url = URL(string: "https://www.abgeordnetenwatch.de/api/v2/polls?label[cn]=\(pollsSearchText)&sort_by=field_poll_date&sort_direction=desc&range_start=0&range_end=10") else {
+        guard let url = URL(string: "https://www.abgeordnetenwatch.de/api/v2/polls?label[cn]=\(pollsSearchText)&sort_by=field_poll_date&sort_direction=desc&range_start=0&range_end=50") else {
             print("Ungültige Poll URL")
             errorMessage = "Ungültige Polls URL"
             return

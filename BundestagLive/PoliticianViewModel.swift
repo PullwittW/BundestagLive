@@ -45,7 +45,7 @@ class PoliticianViewModel: ObservableObject {
             
 //            print("META-DATEN: \(meta.self)")
 //            print("-------------------")
-//            print(politician.self)
+            print(politician.self)
         } catch {
             errorMessage = "Fehler: \(error.localizedDescription)"
             print("Fehler beim Abrufen der Politician-Daten: \(error)")

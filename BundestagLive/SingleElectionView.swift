@@ -9,27 +9,40 @@ import SwiftUI
 
 struct SingleElectionView: View {
     
-    let nextParliament: DataClassParliament
+    let parliament: DataClassParliament
     
     var body: some View {
-        ZStack {
-            RoundedRectangle(cornerRadius: 5)
-                .foregroundStyle(Color.theme.accent)
-            
-            VStack {
-                Text("\(nextParliament.parliament?.label ?? "Bevorstehende Wahl")") // Wahl
-                    .font(.title2)
-                    .bold()
-                    .foregroundStyle(Color.theme.textColor)
-                Text(DateFormatter.dateFormatter.convertDateFormat(from: nextParliament.electionDate ?? "2025-01-01")!)
-                    .foregroundStyle(Color.theme.sectonTextColor)
-                    .bold()
+        NavigationStack {
+            NavigationLink {
+                NextElectionDetailsView(parliament: parliament)
+            } label: {
+                ZStack {
+                    RoundedRectangle(cornerRadius: 10)
+                        .fill(Color.white)
+                        .strokeBorder(style: StrokeStyle(lineWidth: 3))
+                    
+                    VStack {
+                        Spacer()
+                        Text("\(parliament.parliament?.label ?? "Bevorstehende Wahl")") // Wahl
+                            .font(.title2)
+                            .bold()
+                            .foregroundStyle(Color.theme.textColor)
+                            .padding(.horizontal)
+                        Spacer()
+                        ZStack {
+                            RoundedRectangle(cornerRadius: 6)
+                                .fill(Color.theme.accent)
+                                .frame(height: 40)
+                                .frame(maxWidth: .infinity)
+                            
+                            Text(DateFormatter.dateFormatter.convertDateFormat(from: parliament.electionDate ?? "2025-01-01")!)
+                                .bold()
+                                .foregroundStyle(Color.white)
+                        }
+                        .padding(5)
+                    }
+                }
             }
-            .padding()
         }
     }
 }
-
-//#Preview {
-//    SingleElectionView()
-//}

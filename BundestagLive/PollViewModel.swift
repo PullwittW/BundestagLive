@@ -12,6 +12,7 @@ class PollViewModel: ObservableObject {
     @Published var poll: DataClassPoll?
     @Published var errorMessage: String?
     @Published var isLoading: Bool?
+    @Published var noInternetPoll: Bool = false
     
     func loadPoll(pollsId: Int) {
         Task {
@@ -43,6 +44,10 @@ class PollViewModel: ObservableObject {
         } catch {
             errorMessage = "Fehler: \(error.localizedDescription)"
             print("Fehler beim Abrufen der Poll-Daten: \(error)")
+            if error.localizedDescription.contains("offline") || error.localizedDescription.contains("SSL") {
+                print("KEINE INTERNETVERBINDUNG")
+                noInternetPoll = true
+            }
         }
         
         isLoading = false

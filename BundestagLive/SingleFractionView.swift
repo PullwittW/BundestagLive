@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct FractionView: View {
+struct SingleFractionView: View {
     
     @Environment(\.dismiss) private var dismiss
     
@@ -20,11 +20,11 @@ struct FractionView: View {
                 }
             }
             .toolbar(.hidden, for: .tabBar)
-            .navigationBarTitleDisplayMode(.inline)
+            .navigationBarTitleDisplayMode(.large)
         }
     }
 }
 
 #Preview {
-    FractionView()
+    SingleFractionView()
 }
