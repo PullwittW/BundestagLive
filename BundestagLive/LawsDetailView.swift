@@ -12,41 +12,53 @@ struct LawsDetailView: View {
     let news: News
     
     var body: some View {
-        VStack {
-            Text(news.titel)
-                .font(.title2)
-                .bold()
-                .multilineTextAlignment(.center)
-            
-            HStack(spacing: 10) {
-                Rectangle()
-                    .foregroundStyle(Color.theme.accent)
-                    .frame(width: 3)
-                VStack(alignment: .leading) {
-                    ForEach(news.initiative ?? [], id: \.self) { news in
-                        Text(news)
-                            .foregroundStyle(Color("TextColor"))
+        NavigationStack {
+            ScrollView {
+                VStack {
+                    Text(news.titel)
+                        .font(.title2)
+                        .bold()
+                        .multilineTextAlignment(.leading)
+                        .padding(.horizontal)
+                    
+                    HStack {
+                        Rectangle()
+                            .foregroundStyle(Color.theme.accent)
+                            .frame(width: 3)
+                        VStack(alignment: .leading) {
+                            HStack {
+                                Text("Initiative:")
+                                    .foregroundStyle(Color.theme.sectonTextColor)
+                                ForEach(news.initiative ?? [], id: \.self) { news in
+                                    Text(news)
+                                }
+                            }
+                            HStack {
+                                ForEach(news.sachgebiet ?? [], id: \.self) { gebiet in
+                                    Text(gebiet)
+                                        .foregroundStyle(Color.theme.sectonTextColor)
+                                }
+                            }
+                        }
+                        .font(.callout)
+                        .bold()
+                        
+                        Spacer()
                     }
-                    if let beratungszustand = news.beratungsstand {
-                        Text("Beratungsstand: " + beratungszustand)
-                            .foregroundStyle(Color("TextColor"))
+                    
+                    Divider()
+                        .padding()
+                    
+                    VStack(alignment: .leading) {
+                        Text(HTMLFormatter().htmlToPlainText(news.abstract ?? "Kein Inhalt verfügbar"))
+                            .lineSpacing(2.0)
+                            .font(.system(size: 18))
+                            .fontWeight(.medium)
                     }
+                    .padding(.horizontal)
+                    
+                    Spacer()
                 }
-                .font(.callout)
-                .bold()
-                
-                Spacer()
-            }
-            
-            Divider()
-            
-            Spacer()
-            
-            VStack(alignment: .leading) {
-                Text(HTMLFormatter().htmlToPlainText(news.abstract ?? "Kein Inhalt verfügbar"))
-                    .lineSpacing(2.0)
-                    .font(.system(size: 18))
-                    .fontWeight(.medium)
             }
         }
     }

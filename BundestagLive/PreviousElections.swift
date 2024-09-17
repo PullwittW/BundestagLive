@@ -25,12 +25,12 @@ struct PreviousElections: View {
                     ScrollView {
                         VStack(spacing: 0) {
                             ForEach(parliamentsVM.formerParliaments ?? []) { parliament in
-                                SingleElectionView(parliament: parliament)
+                                SinglePreviousElectionView(parliament: parliament)
                                     .padding(.bottom, 10)
                             }
                         }
+                        .padding()
                     }
-                    .padding()
                 }
             }
             .navigationTitle("Vergangene Wahlen")

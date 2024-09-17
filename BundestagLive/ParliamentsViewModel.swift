@@ -57,7 +57,7 @@ class ParliamentsViewModel: ObservableObject {
     
     func fetchFormerParliaments() async {
         print("LOADING Former Parliaments")
-        guard let url = URL(string: "https://www.abgeordnetenwatch.de/api/v2/parliament-periods?type=election&election_date[lte]=2024-09-03&sort_by=election_date&sort_direction=desc&range_end=10") else {
+        guard let url = URL(string: "https://www.abgeordnetenwatch.de/api/v2/parliament-periods?type=election&election_date[lte]=2024-09-03&sort_by=election_date&sort_direction=desc&range_end=20") else {
             print("Ungültige Parliaments URL")
             errorMessage = "Ungültige Parliaments URL"
             return

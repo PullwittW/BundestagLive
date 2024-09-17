@@ -25,12 +25,12 @@ struct NextElectionView: View {
                         ScrollView() {
                             VStack {
                                 ForEach(parliamentsVM.futureParliaments ?? []) { parliament in
-                                    SingleElectionView(parliament: parliament)
+                                    SingleNextElectionView(parliament: parliament)
                                         .padding(.bottom, 10)
                                 }
                             }
+                            .padding()
                         }
-                        .padding()
                     }
                 }
             }

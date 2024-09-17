@@ -1,13 +1,13 @@
 //
-//  NextElectionDetailsView.swift
+//  PreviousElectionDetailView.swift
 //  BundestagLive
 //
-//  Created by Wangu Pullwitt on 08.09.24.
+//  Created by Wangu Pullwitt on 17.09.24.
 //
 
 import SwiftUI
 
-struct NextElectionDetailsView: View {
+struct PreviousElectionDetailView: View {
     
     @EnvironmentObject private var surveysVM: SurveysViewModel
     let parliament: DataClassParliament
@@ -28,18 +28,18 @@ struct NextElectionDetailsView: View {
                             .frame(width: 3)
                         VStack(alignment: .leading) {
                             HStack {
-                                Text("Was wird gewählt:")
+                                Text("Was wurde gewählt:")
                                     .foregroundStyle(Color.theme.sectonTextColor)
                                 if bundestag {
-                                    Text("Es wird der Bundestag gewählt")
+                                    Text("Deutscher Bundestag")
                                 } else if europa {
-                                    Text("Es wird das EU-Parlament gewählt")
+                                    Text("EU-Parlament")
                                 } else {
                                     Text("Landtag in \(parliament.parliament?.label ?? "")")
                                 }
                             }
                             
-                            Text("Wann wird gewählt: ")
+                            Text("Wann wurde gewählt: ")
                                 .foregroundStyle(Color.theme.sectonTextColor)
                             + Text(DateConverter().convertDateFormat(from: parliament.electionDate ?? "2000-01-01")!)
                             
@@ -68,5 +68,5 @@ struct NextElectionDetailsView: View {
 }
 
 //#Preview {
-//    NextElectionDetailsView()
+//    PreviousElectionDetailView()
 //}

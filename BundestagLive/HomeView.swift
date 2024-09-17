@@ -37,13 +37,14 @@ struct HomeView: View {
                             HStack {
                                 Text("Bevorstehende Wahlen")
                                     .foregroundStyle(Color.theme.sectonTextColor)
-                                    .bold()
+                                    .font(.callout)
+                                    .fontWeight(.semibold)
                                 Spacer()
                             }
                             ScrollView(.horizontal) {
                                 HStack {
                                     ForEach(parliamentsVM.futureParliaments ?? []) { parliament in
-                                        SingleElectionView(parliament: parliament)
+                                        SingleNextElectionView(parliament: parliament)
                                             .frame(height: 90)
                                             .padding(.trailing, 10)
                                             .padding(.vertical, 10)
@@ -58,7 +59,8 @@ struct HomeView: View {
                     HStack {
                         Text("Aktuelle Abstimmungen")
                             .foregroundStyle(Color.theme.sectonTextColor)
-                            .bold()
+                            .font(.callout)
+                            .fontWeight(.semibold)
                         Spacer()
                     }
                     if pollsVM.polls?.isEmpty ?? true {

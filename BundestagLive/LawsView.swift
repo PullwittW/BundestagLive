@@ -3,22 +3,30 @@
 //  BundestagLive
 //
 //  Created by Wangu Pullwitt on 17.09.24.
-//
+//if news.beratungsstand ?? "Kein Beratungszustand" == "Überwiesen" {
+//VStack {
+//    Text(news.titel)
+//}
+//}
 
 import SwiftUI
+import Combine
 
 struct LawsView: View {
     
     @EnvironmentObject private var newsVM: NewsViewModel
+    @State private var debounceTimer: AnyCancellable? = nil
     
     var body: some View {
         NavigationStack {
             VStack {
                 List {
                     Section {
-                        ForEach(newsVM.news?.prefix(5) ?? []) { news in
+                        ForEach(newsVM.news?.prefix(10) ?? []) { news in
                             if news.beratungsstand ?? "Kein Beratungszustand" == "Überwiesen" {
-                                VStack {
+                                NavigationLink {
+                                    LawsDetailView(news: news)
+                                } label: {
                                     Text(news.titel)
                                 }
                             }
@@ -28,9 +36,11 @@ struct LawsView: View {
                     }
                     
                     Section {
-                        ForEach(newsVM.news?.prefix(5) ?? []) { news in
+                        ForEach(newsVM.news?.prefix(10) ?? []) { news in
                             if news.beratungsstand ?? "Kein Beratungszustand" == "Noch nicht beraten" {
-                                VStack {
+                                NavigationLink {
+                                    LawsDetailView(news: news)
+                                } label: {
                                     Text(news.titel)
                                 }
                             }
@@ -43,11 +53,30 @@ struct LawsView: View {
             }
             .navigationTitle("Gesetze")
             .navigationBarTitleDisplayMode(.inline)
-            .toolbar(.hidden, for: .tabBar)
             .refreshable {
                 newsVM.loadNews()
             }
+            .searchable(text: $newsVM.newsSearchInput, placement: .navigationBarDrawer(displayMode: .always), prompt: "Suche nach Gesetzen")
+            .onChange(of: newsVM.newsSearchInput) {
+                startDebounceTimer()
+            }
+            .toolbar(.hidden, for: .tabBar)
         }
+    }
+    
+    private func startDebounceTimer() {
+        debounceTimer?.cancel() // Vorherigen Timer abbrechen, falls vorhanden
+        
+        // Neuen Timer starten, der nach 1 Sekunde den Code ausführt
+        debounceTimer = Just(())
+            .delay(for: .seconds(0.75), scheduler: RunLoop.main)
+            .sink { _ in
+                onInputChangeDelayed()
+            }
+    }
+    
+    private func onInputChangeDelayed() {
+        newsVM.loadNews()
     }
 }
 

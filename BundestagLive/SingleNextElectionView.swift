@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SingleElectionView: View {
+struct SingleNextElectionView: View {
     
     let parliament: DataClassParliament
     
