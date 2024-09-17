@@ -9,8 +9,8 @@ import Foundation
 
 @MainActor
 class ParliamentsViewModel: ObservableObject {
-    @Published var futureParliaments: [DataClassParliament]?
-    @Published var formerParliaments: [DataClassParliament]?
+    @Published var futureParliaments: [DataClassParliament]? = []
+    @Published var formerParliaments: [DataClassParliament]? = []
     @Published var errorMessage: String?
     @Published var isLoading: Bool?
     

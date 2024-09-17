@@ -36,11 +36,6 @@ struct PreviousElections: View {
             .navigationTitle("Vergangene Wahlen")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar(.hidden, for: .tabBar)
-            .onAppear {
-                if ((parliamentsVM.formerParliaments?.isEmpty) != false) {
-                    parliamentsVM.loadFormerParliament()
-                }
-            }
         }
     }
 }

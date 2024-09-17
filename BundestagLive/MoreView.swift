@@ -8,6 +8,10 @@
 import SwiftUI
 
 struct MoreView: View {
+    
+    @EnvironmentObject private var newsVM: NewsViewModel
+    @EnvironmentObject private var parliamentsVM: ParliamentsViewModel
+    
     var body: some View {
         NavigationStack {
             ZStack {
@@ -84,6 +88,14 @@ struct MoreView: View {
                 }
             }
             .navigationTitle("Mehr")
+            .onAppear {
+                if newsVM.news?.isEmpty == true {
+                    newsVM.loadNews()
+                }
+                if parliamentsVM.formerParliaments?.isEmpty == true {
+                    parliamentsVM.loadFormerParliament()
+                }
+            }
         }
     }
 }

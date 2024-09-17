@@ -62,6 +62,10 @@
 		72D6CC0E2C8DB4230089DD90 /* SurveysViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D6CC0D2C8DB4230089DD90 /* SurveysViewModel.swift */; };
 		72D6CC102C8DB7B30089DD90 /* NextElectionDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D6CC0F2C8DB7B30089DD90 /* NextElectionDetailsView.swift */; };
 		72E9BBA02C999EF100C425AC /* LawsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E9BB9F2C999EF100C425AC /* LawsView.swift */; };
+		72E9BBA42C99A66800C425AC /* LawModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E9BBA32C99A66800C425AC /* LawModel.swift */; };
+		72E9BBA62C99A67D00C425AC /* LawsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E9BBA52C99A67D00C425AC /* LawsModel.swift */; };
+		72E9BBA92C99A6A600C425AC /* LawsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E9BBA82C99A6A600C425AC /* LawsViewModel.swift */; };
+		72E9BBAB2C99C0B800C425AC /* LawsDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E9BBAA2C99C0B700C425AC /* LawsDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -122,6 +126,10 @@
 		72D6CC0D2C8DB4230089DD90 /* SurveysViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveysViewModel.swift; sourceTree = "<group>"; };
 		72D6CC0F2C8DB7B30089DD90 /* NextElectionDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextElectionDetailsView.swift; sourceTree = "<group>"; };
 		72E9BB9F2C999EF100C425AC /* LawsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LawsView.swift; sourceTree = "<group>"; };
+		72E9BBA32C99A66800C425AC /* LawModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LawModel.swift; sourceTree = "<group>"; };
+		72E9BBA52C99A67D00C425AC /* LawsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LawsModel.swift; sourceTree = "<group>"; };
+		72E9BBA82C99A6A600C425AC /* LawsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LawsViewModel.swift; sourceTree = "<group>"; };
+		72E9BBAA2C99C0B700C425AC /* LawsDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LawsDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,6 +191,7 @@
 				72CD2DF02C84A46D00E655C4 /* Polls */,
 				72D51B622C872C7300785093 /* Parliament */,
 				72D6CC082C8DAE9B0089DD90 /* Surveys */,
+				72E9BBA22C99A64800C425AC /* Laws */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -219,6 +228,7 @@
 				72CD2DEB2C84A44600E655C4 /* Polls */,
 				72D51B672C8732E100785093 /* Parliaments */,
 				72D6CC0C2C8DB4050089DD90 /* Surveys */,
+				72E9BBA72C99A68F00C425AC /* Laws */,
 			);
 			name = ViewModels;
 			sourceTree = "<group>";
@@ -458,6 +468,24 @@
 			isa = PBXGroup;
 			children = (
 				72E9BB9F2C999EF100C425AC /* LawsView.swift */,
+				72E9BBAA2C99C0B700C425AC /* LawsDetailView.swift */,
+			);
+			name = Laws;
+			sourceTree = "<group>";
+		};
+		72E9BBA22C99A64800C425AC /* Laws */ = {
+			isa = PBXGroup;
+			children = (
+				72E9BBA32C99A66800C425AC /* LawModel.swift */,
+				72E9BBA52C99A67D00C425AC /* LawsModel.swift */,
+			);
+			name = Laws;
+			sourceTree = "<group>";
+		};
+		72E9BBA72C99A68F00C425AC /* Laws */ = {
+			isa = PBXGroup;
+			children = (
+				72E9BBA82C99A6A600C425AC /* LawsViewModel.swift */,
 			);
 			name = Laws;
 			sourceTree = "<group>";
@@ -533,6 +561,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				72E9BBA92C99A6A600C425AC /* LawsViewModel.swift in Sources */,
 				72C51BEE2C92FB7400266719 /* SwiftUILinksView.swift in Sources */,
 				72CD2DEA2C84801D00E655C4 /* SingleElectionProgrammView.swift in Sources */,
 				72CF33472C833886002D7BCD /* FractionViewModel.swift in Sources */,
@@ -543,6 +572,8 @@
 				7271379B2C824E88007A6EF7 /* PoliticianViewModel.swift in Sources */,
 				72CD2DEF2C84A46600E655C4 /* PollsViewModel.swift in Sources */,
 				72CD2DED2C84A45C00E655C4 /* PollViewModel.swift in Sources */,
+				72E9BBA42C99A66800C425AC /* LawModel.swift in Sources */,
+				72E9BBAB2C99C0B800C425AC /* LawsDetailView.swift in Sources */,
 				72CF33392C832557002D7BCD /* ParliamentPeriode.swift in Sources */,
 				72CF331E2C83014A002D7BCD /* PartyViewModel.swift in Sources */,
 				72C9D3FA2C88A0A9002C5243 /* SingleElectionView.swift in Sources */,
@@ -560,6 +591,7 @@
 				727137992C824E01007A6EF7 /* PoliticianModel.swift in Sources */,
 				72D51B662C872C9300785093 /* ParliamentsModel.swift in Sources */,
 				72D51B6B2C873B6300785093 /* Formatter.swift in Sources */,
+				72E9BBA62C99A67D00C425AC /* LawsModel.swift in Sources */,
 				72CD2DF62C84A53A00E655C4 /* Legals.swift in Sources */,
 				72CF33292C8307FF002D7BCD /* SinglePartyView.swift in Sources */,
 				72D632682C9580D300B538A6 /* LaunchView.swift in Sources */,

@@ -44,6 +44,7 @@ struct TabBarView: View {
                         Text("Mehr")
                     }
                     .tag(4)
+                    .environmentObject(NewsViewModel())
             }
         }
         .sensoryFeedback(.selection, trigger: selectedTab)

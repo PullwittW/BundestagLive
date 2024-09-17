@@ -15,6 +15,7 @@ struct LaunchView: View {
     @EnvironmentObject private var pollsVM: PollsViewModel
     @EnvironmentObject private var parliamentsVM: ParliamentsViewModel
     @EnvironmentObject private var surveysVM: SurveysViewModel
+    @EnvironmentObject private var newsVM: NewsViewModel
     
     var body: some View {
         NavigationStack {

@@ -87,7 +87,7 @@ struct SearchView: View {
                     Section {
                         ForEach(fractionsVM.fractions ?? []) { fraction in
                             NavigationLink {
-                                SingleFractionView()
+                                SingleFractionView(fraction: fraction)
                             } label: {
                                 HStack {
                                     Text("\(fraction.label ?? "Kein Name")")
