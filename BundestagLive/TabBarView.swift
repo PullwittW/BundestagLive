@@ -9,40 +9,49 @@ import SwiftUI
 
 struct TabBarView: View {
     
-    @State var selectedTab = 0
+    @State var selectedTab: Int = 0
     
     var body: some View {
         TabView(selection: $selectedTab) {
-            HomeView()
-                .tabItem {
-                    Image(systemName: "newspaper")
-                    Text("Neues")
-                }
-                .tag(0)
-            
-            SearchView()
-                .tabItem {
-                    Image(systemName: "doc.text.magnifyingglass")
-                    Text("Suchen")
-                }
-                .tag(1)
-            
-            PollsView()
-                .tabItem {
-                    Image(systemName: "chart.bar.doc.horizontal") // doc.questionmark, list.clipboard, doc.plaintext
-                    Text("Abstimmungen")
-                }
-                .tag(2)
-                .environmentObject(PollsViewModel())
-            
-            MoreView()
-                .tabItem {
-                    Image(systemName: "ellipsis")
-                    Text("Mehr")
-                }
-                .tag(3)
+            if selectedTab == 0 {
+                LaunchView()
+                    .tag(0)
+            } else {
+                HomeView()
+                    .tabItem {
+                        Image(systemName: "newspaper")
+                        Text("Neues")
+                    }
+                    .tag(1)
+                
+                SearchView()
+                    .tabItem {
+                        Image(systemName: "doc.text.magnifyingglass")
+                        Text("Suchen")
+                    }
+                    .tag(2)
+                
+                PollsView()
+                    .tabItem {
+                        Image(systemName: "chart.bar.doc.horizontal") // doc.questionmark, list.clipboard, doc.plaintext
+                        Text("Abstimmungen")
+                    }
+                    .tag(3)
+                
+                MoreView()
+                    .tabItem {
+                        Image(systemName: "ellipsis")
+                        Text("Mehr")
+                    }
+                    .tag(4)
+            }
         }
         .sensoryFeedback(.selection, trigger: selectedTab)
+        .onAppear {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+                selectedTab = 1
+            }
+        }
     }
 }
 

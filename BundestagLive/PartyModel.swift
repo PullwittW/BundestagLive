@@ -28,4 +28,12 @@ struct DataClassParty: Codable, Identifiable {
         case fullName = "full_name"
         case shortName = "short_name"
     }
+    
+    // Standard-Datensatz für Preview
+    static let exampleParty = Party(
+        id: 4,
+        entityType: "party",
+        label: "FDP",
+        apiURL: "https://api.example.com/parties/1"
+    )
 }

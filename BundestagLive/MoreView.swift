@@ -22,6 +22,11 @@ struct MoreView: View {
                             } label: {
                                 Text("Periode")
                             }
+                            NavigationLink {
+                                LawsView()
+                            } label: {
+                                Text("Gesetze und Gesetzesvorschläge")
+                            }
                         } header: {
                             Text("Bundestag")
                         }

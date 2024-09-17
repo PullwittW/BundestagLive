@@ -87,43 +87,6 @@ struct HomeView: View {
                 .padding(.leading)
             }
             .navigationTitle("Neues")
-            .onAppear {
-//                if ((politiciansVM.politicians?.isEmpty) != false) {
-//                    politiciansVM.loadPoliticians()
-//                }
-//                if ((partysVM.partys?.isEmpty) != false) {
-//                    partysVM.loadPartys(searchInput: politiciansVM.searchInput)
-//                }
-//                if ((fractionsVM.fractions?.isEmpty) != false) {
-//                    fractionsVM.loadFractions(searchInput: politiciansVM.searchInput)
-//                }
-                if ((pollsVM.polls?.isEmpty) != false) {
-                    pollsVM.loadPolls(pollsSearchText: pollsVM.pollsSearchText)
-                }
-                if ((parliamentsVM.futureParliaments?.isEmpty) != false) {
-                    parliamentsVM.loadFutureParliaments()
-                }
-//                if ((parliamentsVM.formerParliaments?.isEmpty) != false) {
-//                    parliamentsVM.loadFormerParliament()
-//                }
-//                if ((surveysVM.surveys?.isEmpty) != false) {
-//                    surveysVM.loadSurveys()
-//                }
-            }
-            .alert("Du bist nicht mit dem Internet verbunden", isPresented: $politiciansVM.noInternetPolitician) {
-                Button {
-                    politiciansVM.loadPoliticians()
-                    partysVM.loadPartys(searchInput: politiciansVM.searchInput)
-                    fractionsVM.loadFractions(searchInput: politiciansVM.searchInput)
-                    pollsVM.loadPolls(pollsSearchText: pollsVM.pollsSearchText)
-                    parliamentsVM.loadFutureParliaments()
-                    parliamentsVM.loadFormerParliament()
-//                    surveysVM.loadSurveys()
-                } label: {
-                    Text("Neu laden...")
-                }
-
-            }
         }
     }
 }
