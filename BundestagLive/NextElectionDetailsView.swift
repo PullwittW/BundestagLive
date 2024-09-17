@@ -17,9 +17,7 @@ struct NextElectionDetailsView: View {
     var body: some View {
         NavigationStack {
             VStack {
-//                ForEach(surveysVM.surveys!.values) { survey in
-//                    
-//                }
+                
             }
             .onAppear {
                 self.parliamentId = surveysVM.getSurveyId(surveyLand: parliament.label ?? "Bundestag")

@@ -33,10 +33,11 @@ struct HomeView: View {
                         }
                         .padding()
                     } else {
-                        VStack {
+                        VStack(spacing: 0) {
                             HStack {
                                 Text("Bevorstehende Wahlen")
                                     .foregroundStyle(Color.theme.sectonTextColor)
+                                    .bold()
                                 Spacer()
                             }
                             ScrollView(.horizontal) {
@@ -57,6 +58,7 @@ struct HomeView: View {
                     HStack {
                         Text("Aktuelle Abstimmungen")
                             .foregroundStyle(Color.theme.sectonTextColor)
+                            .bold()
                         Spacer()
                     }
                     if pollsVM.polls?.isEmpty ?? true {

@@ -41,6 +41,9 @@ struct PollsView: View {
             .onChange(of: pollsVM.pollsSearchText) {
                 startDebounceTimer()
             }
+            .refreshable {
+                pollsVM.loadPolls(pollsSearchText: pollsVM.pollsSearchText)
+            }
         }
     }
     

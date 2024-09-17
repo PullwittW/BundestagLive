@@ -44,6 +44,9 @@ struct LawsView: View {
             .navigationTitle("Gesetze")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar(.hidden, for: .tabBar)
+            .refreshable {
+                newsVM.loadNews()
+            }
         }
     }
 }
