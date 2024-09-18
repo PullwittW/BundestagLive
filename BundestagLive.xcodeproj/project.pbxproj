@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		720629602C9B5AE1009A7B90 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7206295F2C9B5AE1009A7B90 /* NetworkManager.swift */; };
 		72371A672C875CD2006BE127 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72371A662C875CD2006BE127 /* Launch Screen.storyboard */; };
 		727137992C824E01007A6EF7 /* PoliticianModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 727137982C824E01007A6EF7 /* PoliticianModel.swift */; };
 		7271379B2C824E88007A6EF7 /* PoliticianViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7271379A2C824E88007A6EF7 /* PoliticianViewModel.swift */; };
@@ -72,6 +73,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7206295F2C9B5AE1009A7B90 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		72371A662C875CD2006BE127 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		727137982C824E01007A6EF7 /* PoliticianModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoliticianModel.swift; sourceTree = "<group>"; };
 		7271379A2C824E88007A6EF7 /* PoliticianViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoliticianViewModel.swift; sourceTree = "<group>"; };
@@ -149,6 +151,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7206295E2C9B5ACC009A7B90 /* NetworkManager */ = {
+			isa = PBXGroup;
+			children = (
+				7206295F2C9B5AE1009A7B90 /* NetworkManager.swift */,
+			);
+			name = NetworkManager;
+			sourceTree = "<group>";
+		};
 		72ADE2DF2C824D5B00F69370 = {
 			isa = PBXGroup;
 			children = (
@@ -170,6 +180,7 @@
 			children = (
 				72D51B712C87536F00785093 /* Info.plist */,
 				72ADE2EB2C824D5B00F69370 /* BundestagLiveApp.swift */,
+				7206295E2C9B5ACC009A7B90 /* NetworkManager */,
 				72C4575B2C826FA6006E1234 /* Core */,
 				72C4575E2C826FDF006E1234 /* ViewModels */,
 				72ADE2FA2C824D8700F69370 /* Models */,
@@ -582,6 +593,7 @@
 				72CD2DEF2C84A46600E655C4 /* PollsViewModel.swift in Sources */,
 				72CD2DED2C84A45C00E655C4 /* PollViewModel.swift in Sources */,
 				72E9BBA42C99A66800C425AC /* LawModel.swift in Sources */,
+				720629602C9B5AE1009A7B90 /* NetworkManager.swift in Sources */,
 				72E9BBAB2C99C0B800C425AC /* LawsDetailView.swift in Sources */,
 				72CF33392C832557002D7BCD /* ParliamentPeriode.swift in Sources */,
 				72CF331E2C83014A002D7BCD /* PartyViewModel.swift in Sources */,

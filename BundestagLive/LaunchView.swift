@@ -58,19 +58,6 @@ struct LaunchView: View {
 //                    surveysVM.loadSurveys()
 //                }
             }
-            .alert("Du bist nicht mit dem Internet verbunden", isPresented: $politiciansVM.noInternetPolitician) {
-                Button {
-                    politiciansVM.loadPoliticians()
-                    partysVM.loadPartys(searchInput: politiciansVM.searchInput)
-                    fractionsVM.loadFractions(searchInput: politiciansVM.searchInput)
-                    pollsVM.loadPolls(pollsSearchText: pollsVM.pollsSearchText)
-                    parliamentsVM.loadFutureParliaments()
-                    parliamentsVM.loadFormerParliament()
-//                    surveysVM.loadSurveys()
-                } label: {
-                    Text("Neu laden...")
-                }
-            }
         }
     }
 }
