@@ -67,7 +67,8 @@ enum DocumentTyp: String, Codable {
 }
 
 // MARK: - Verkuendung
-struct Verkuendung: Codable {
+struct Verkuendung: Codable, Identifiable {
+    let id = UUID()
     let jahrgang, heftnummer, ausfertigungsdatum, verkuendungsdatum: String
     let einleitungstext: String
     let pdfURL: String
@@ -84,7 +85,7 @@ struct Verkuendung: Codable {
 }
 
 // MARK: - VorgangVerlinkung
-struct VorgangVerlinkung: Codable {
+struct VorgangVerlinkung: Codable, Identifiable {
     let verweisung, titel, id: String
     let wahlperiode: Int
 }

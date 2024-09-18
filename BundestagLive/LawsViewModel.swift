@@ -4,6 +4,8 @@
 //
 //  Created by Wangu Pullwitt on 17.09.24.
 //
+//https://search.dip.bundestag.de/api/v1/vorgang?f.vorgangstyp=Gesetzgebung&format=json&apikey=I9FKdCn.hbfefNWCY336dL6x62vfwNKpoN2RZ1gp21
+//
 // KÜRZLICHE AKTUALIESIERUNG IMPLEMENTIEREN
 
 import Foundation
@@ -36,12 +38,12 @@ class NewsViewModel: ObservableObject {
             return
         }
         let defaultURL = URL(string: "https://search.dip.bundestag.de/api/v1/vorgang?f.vorgangstyp=Gesetzgebung&format=json&apikey=\(token)")
-        print(url)
+
         
         isLoading = true
         errorMessage = nil
         
-        if trimmedSearch.isEmpty {
+        if trimmedSearch.count == 0 {
             do {
                 let (data, response) = try await URLSession.shared.data(from: defaultURL!)
                 guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {

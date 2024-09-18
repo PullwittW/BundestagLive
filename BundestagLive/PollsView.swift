@@ -14,21 +14,25 @@ struct PollsView: View {
     
     var body: some View {
         NavigationStack {
-            VStack {
-                ScrollView {
-                    LazyVStack {
-                        ForEach(pollsVM.polls ?? []) { poll in
-                            NavigationLink {
-                                PollDetailView(poll: poll)
-                            } label: {
-                                singlePoll(poll: poll)
-                                    .padding(.horizontal)
-                                    .padding(.bottom, 10)
+            ZStack {
+                Color.theme.background
+                
+                VStack {
+                    ScrollView {
+                        LazyVStack {
+                            ForEach(pollsVM.polls ?? []) { poll in
+                                NavigationLink {
+                                    PollDetailView(poll: poll)
+                                } label: {
+                                    singlePoll(poll: poll)
+                                        .padding(.horizontal)
+                                        .padding(.bottom, 10)
+                                }
                             }
                         }
                     }
+                    .padding(.top, 10)
                 }
-                .padding(.top, 10)
             }
             .navigationTitle("Abstimmungen")
             .navigationBarTitleDisplayMode(.large)

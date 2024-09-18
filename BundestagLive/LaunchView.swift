@@ -70,7 +70,6 @@ struct LaunchView: View {
                 } label: {
                     Text("Neu laden...")
                 }
-
             }
         }
     }

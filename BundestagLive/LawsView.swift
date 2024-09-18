@@ -22,8 +22,8 @@ struct LawsView: View {
             VStack {
                 List {
                     Section {
-                        ForEach(newsVM.news?.prefix(10) ?? []) { news in
-                            if news.beratungsstand ?? "Kein Beratungszustand" == "Überwiesen" {
+                        if let newsList = newsVM.news {
+                            ForEach(newsList.prefix(50).filter { $0.beratungsstand?.contains("Überwiesen") == true }) { news in
                                 NavigationLink {
                                     LawsDetailView(news: news)
                                 } label: {
@@ -36,8 +36,8 @@ struct LawsView: View {
                     }
                     
                     Section {
-                        ForEach(newsVM.news?.prefix(10) ?? []) { news in
-                            if news.beratungsstand ?? "Kein Beratungszustand" == "Noch nicht beraten" {
+                        if let newsList = newsVM.news {
+                            ForEach(newsList.prefix(50).filter { $0.beratungsstand?.contains("Noch nicht beraten") == true }) { news in
                                 NavigationLink {
                                     LawsDetailView(news: news)
                                 } label: {

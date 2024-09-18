@@ -23,6 +23,7 @@ struct Legals: View {
                         Text("Durch die Nutzung dieser App erklären Sie sich damit einverstanden, dass die Entwickler und Betreiber der App nicht für eventuelle Schäden oder Verluste haftbar gemacht werden können, die direkt oder indirekt durch die Nutzung oder das Vertrauen auf die in der App bereitgestellten Informationen entstehen.")
                         Spacer()
                         Text("")
+                        Divider()
                         Text("Kontakt:")
                         Text("www.wangupullwitt.de/bundestag-live")
                     }

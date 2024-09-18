@@ -26,6 +26,9 @@ struct LawsDetailView: View {
                             .foregroundStyle(Color.theme.accent)
                             .frame(width: 3)
                         VStack(alignment: .leading) {
+                            Text("Datum: ")
+                                .foregroundStyle(Color.theme.sectonTextColor)
+                            + Text(DateConverter().convertDateFormat(from: news.datum ?? "2000-01-01")!)
                             HStack {
                                 Text("Initiative:")
                                     .foregroundStyle(Color.theme.sectonTextColor)
@@ -45,9 +48,10 @@ struct LawsDetailView: View {
                         
                         Spacer()
                     }
+                    .padding(.vertical)
                     
                     Divider()
-                        .padding()
+                        .padding(.horizontal)
                     
                     VStack(alignment: .leading) {
                         Text(HTMLFormatter().htmlToPlainText(news.abstract ?? "Kein Inhalt verfügbar"))
@@ -55,7 +59,31 @@ struct LawsDetailView: View {
                             .font(.system(size: 18))
                             .fontWeight(.medium)
                     }
-                    .padding(.horizontal)
+                    .padding()
+                    
+                    if !(news.verkuendung ?? []).isEmpty {
+                        VStack {
+                            HStack {
+                                Text("Weiterführende Links")
+                                    .foregroundStyle(Color.theme.sectonTextColor)
+                                Spacer()
+                            }
+                            ForEach(news.verkuendung ?? []) { verkuendung in
+                                HStack {
+                                    Text(verkuendung.pdfURL)
+                                        .padding()
+                                        .foregroundStyle(Color.theme.accent)
+                                }
+                                .multilineTextAlignment(.leading)
+                                .frame(maxWidth: .infinity)
+                                .background {
+                                    RoundedRectangle(cornerRadius: 5)
+                                        .foregroundStyle(Color.theme.background)
+                                }
+                            }
+                        }
+                        .padding()
+                    }
                     
                     Spacer()
                 }
