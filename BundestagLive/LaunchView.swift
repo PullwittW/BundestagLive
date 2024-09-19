@@ -45,9 +45,9 @@ struct LaunchView: View {
 //                if ((fractionsVM.fractions?.isEmpty) != false) {
 //                    fractionsVM.loadFractions(searchInput: politiciansVM.searchInput)
 //                }
-                if ((pollsVM.polls?.isEmpty) != false) {
-                    pollsVM.loadPolls(pollsSearchText: pollsVM.pollsSearchText)
-                }
+//                if ((pollsVM.polls?.isEmpty) != false) {
+//                    pollsVM.loadPolls(pollsSearchText: pollsVM.pollsSearchText)
+//                }
                 if ((parliamentsVM.futureParliaments?.isEmpty) != false) {
                     parliamentsVM.loadFutureParliaments()
                 }
@@ -55,7 +55,7 @@ struct LaunchView: View {
 //                    parliamentsVM.loadFormerParliament()
 //                }
 //                if ((surveysVM.surveys?.isEmpty) != false) {
-//                    surveysVM.loadSurveys()
+                    surveysVM.loadSurveys()
 //                }
             }
         }

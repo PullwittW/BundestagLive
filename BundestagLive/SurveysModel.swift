@@ -84,7 +84,7 @@ struct SurveyParty: Codable {
 
 // MARK: - Survey
 struct Survey: Codable, Identifiable {
-    let id: String = UUID().uuidString
+    let id = UUID()
     let date: String?
     let surveyPeriod: SurveyPeriod?
     let surveyedPersons, parliamentID, instituteID, taskerID: String?

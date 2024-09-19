@@ -349,7 +349,6 @@
 			isa = PBXGroup;
 			children = (
 				72CF332C2C830822002D7BCD /* HomeView.swift */,
-				72CF33362C83191C002D7BCD /* TabBarView.swift */,
 			);
 			name = Home;
 			sourceTree = "<group>";
@@ -444,6 +443,7 @@
 			children = (
 				72371A662C875CD2006BE127 /* Launch Screen.storyboard */,
 				72D632672C9580D300B538A6 /* LaunchView.swift */,
+				72CF33362C83191C002D7BCD /* TabBarView.swift */,
 			);
 			name = Launch;
 			sourceTree = "<group>";

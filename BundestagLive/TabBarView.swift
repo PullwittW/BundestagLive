@@ -50,9 +50,9 @@ struct TabBarView: View {
         }
         .sensoryFeedback(.selection, trigger: selectedTab)
         .onAppear {
-            DispatchQueue.main.asyncAfter(deadline: .now()+1.5) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
                 if networkManager.isConnected {
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
                         selectedTab = 1
                     }
                 }

@@ -61,13 +61,12 @@ class SurveysViewModel: ObservableObject {
             print("Fehler beim Abrufen der Surveys-Daten: \(error)")
         }
         
-        for s in surveys ?? [:] {
-            if round < 5 {
-                print(s)
-                round = round + 1
-            }
-        }
-        
+//        for s in surveys ?? [:] {
+//            if round < 5 {
+//                print(s)
+//                round = round + 1
+//            }
+//        }
         isLoading = false
     }
     
@@ -113,6 +112,82 @@ class SurveysViewModel: ObservableObject {
             
         default:
             return "0"
+        }
+    }
+    
+    func getInstituteName(instituteId: String) -> String {
+        switch instituteId {
+        case "1": return "Infratest dimap"
+        case "2": return "Forsa"
+        case "3": return "Verian (Emnid)"
+        case "4": return "GMS"
+        case "5": return "INSA"
+        case "6": return "Forschungsgruppe Wahlen"
+        case "7": return "Trend Research Hamburg"
+        case "9": return "Allensbach"
+        case "12": return "uniQma"
+        case "13": return "YouGov"
+        case "14": return "dimap"
+        case "15": return "Mentefactum"
+        case "16": return "Civey"
+        case "17": return "Ipsos"
+        case "18": return "Universität Hamburg"
+        case "20": return "IM Field"
+        case "21": return "Policy Matters"
+        case "22": return "pollytix"
+        case "23": return "Conoscope"
+        case "24": return "Institut Wahlkreisprognose"
+        case "25": return "IFM Berlin"
+        default: return "Unbekanntes Institut"
+        }
+    }
+    
+    func getPartyName(partyId: String) -> String {
+        switch partyId {
+        case "0": return "Sonstige"
+        case "1": return "CDU/CSU"
+        case "2": return "SPD"
+        case "3": return "FDP"
+        case "4": return "Grüne"
+        case "5": return "Linke"
+        case "6": return "Piraten"
+        case "7": return "AfD"
+        case "8": return "Freie Wähler"
+        case "9": return "NPD"
+        case "10": return "SSW"
+        case "11": return "Bayernpartei"
+        case "12": return "ÖDP"
+        case "13": return "Die PARTEI"
+        case "14": return "BVB/FW"
+        case "15": return "Tierschutzpartei"
+        case "16": return "BIW"
+        case "17": return "Familie"
+        case "18": return "Volt"
+        case "21": return "bunt.saar"
+        case "22": return "BfTh"
+        case "23": return "BSW"
+        case "24": return "Plus Brandenburg"
+        case "25": return "WerteUnion"
+        case "101": return "CDU"
+        case "102": return "CSU"
+        default: return "Unbekannte Partei"
+        }
+    }    
+    
+    func getPartyColor(partyId: String) -> Color {
+        switch partyId {
+        case "0": return Color.gray
+        case "1": return Color.black
+        case "2": return Color.red
+        case "3": return Color.yellow
+        case "4": return Color.green
+        case "5": return Color.pink
+        case "7": return Color.blue
+        case "14": return Color.orange
+        case "23": return Color.brown
+        case "101": return Color.black
+        case "102": return Color.black
+        default: return Color.gray
         }
     }
 }
