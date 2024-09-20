@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MoreView: View {
     
-    @EnvironmentObject private var newsVM: NewsViewModel
+    @EnvironmentObject private var lawsVM: LawsViewModel
     @EnvironmentObject private var parliamentsVM: ParliamentsViewModel
     
     var body: some View {
@@ -89,8 +89,8 @@ struct MoreView: View {
             }
             .navigationTitle("Mehr")
             .onAppear {
-                if newsVM.news?.isEmpty == true {
-                    newsVM.loadNews()
+                if lawsVM.laws?.isEmpty == true {
+                    lawsVM.loadLaws()
                 }
                 if parliamentsVM.formerParliaments?.isEmpty == true {
                     parliamentsVM.loadFormerParliament()

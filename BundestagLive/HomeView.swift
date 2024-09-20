@@ -10,11 +10,9 @@ import SwiftUI
 struct HomeView: View {
     
     @EnvironmentObject private var politiciansVM: PoliticiansViewModel
-    @EnvironmentObject private var partysVM: PartysViewModel
-    @EnvironmentObject private var fractionsVM: FractionsViewModel
     @EnvironmentObject private var pollsVM: PollsViewModel
     @EnvironmentObject private var parliamentsVM: ParliamentsViewModel
-    @EnvironmentObject private var surveysVM: SurveysViewModel
+//    @EnvironmentObject private var newsVM: TagesschauViewModel
     
     @State private var count: Int = 0
     
@@ -22,7 +20,7 @@ struct HomeView: View {
         NavigationStack {
             ZStack {
                 Color.theme.background.ignoresSafeArea()
-                VStack(spacing: 0) {
+                ScrollView {
                     // Aktuellen Bundestag abbilden
                     
                     
@@ -84,6 +82,20 @@ struct HomeView: View {
                             }
                         }
                     }
+                    
+//                    // Neuste Nachrichten von der Tagesschau Inland
+//                    HStack {
+//                        Text("Nachrichten aus dem Inland")
+//                            .foregroundStyle(Color.theme.sectonTextColor)
+//                            .font(.callout)
+//                            .fontWeight(.semibold)
+//                        Spacer()
+//                    }
+//                    VStack {
+//                        ForEach(newsVM.news) { news in
+//                            Text(news.title ?? "Titel")
+//                        }
+//                    }
                     
                     Spacer()
                 }

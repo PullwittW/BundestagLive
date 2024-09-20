@@ -22,6 +22,7 @@ struct Resources: View {
                 }
                 Section("Argumente gegen Populismus") {
                     Text("[MiaThinkX zu Populismus](https://populismus.online)")
+                    Text("[Lage der Nation 'Talk' - Erste Hilfe gegen Desinformation](https://talk.lagedernation.org/c/faq-desinformation/14)")
                 }
             }
             .navigationTitle("Datasources")

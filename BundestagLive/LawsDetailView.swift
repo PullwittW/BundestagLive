@@ -9,13 +9,13 @@ import SwiftUI
 
 struct LawsDetailView: View {
     
-    let news: News
+    let law: Law
     
     var body: some View {
         NavigationStack {
             ScrollView {
                 VStack {
-                    Text(news.titel)
+                    Text(law.titel)
                         .font(.title2)
                         .bold()
                         .multilineTextAlignment(.leading)
@@ -28,16 +28,16 @@ struct LawsDetailView: View {
                         VStack(alignment: .leading) {
                             Text("Datum: ")
                                 .foregroundStyle(Color.theme.sectonTextColor)
-                            + Text(DateConverter().convertDateFormat(from: news.datum ?? "2000-01-01")!)
+                            + Text(DateConverter().convertDateFormat(from: law.datum ?? "2000-01-01")!)
                             HStack {
                                 Text("Initiative:")
                                     .foregroundStyle(Color.theme.sectonTextColor)
-                                ForEach(news.initiative ?? [], id: \.self) { news in
-                                    Text(news)
+                                ForEach(law.initiative ?? [], id: \.self) { law in
+                                    Text(law)
                                 }
                             }
                             HStack {
-                                ForEach(news.sachgebiet ?? [], id: \.self) { gebiet in
+                                ForEach(law.sachgebiet ?? [], id: \.self) { gebiet in
                                     Text(gebiet)
                                         .foregroundStyle(Color.theme.sectonTextColor)
                                 }
@@ -54,21 +54,21 @@ struct LawsDetailView: View {
                         .padding(.horizontal)
                     
                     VStack(alignment: .leading) {
-                        Text(HTMLFormatter().htmlToPlainText(news.abstract ?? "Kein Inhalt verfügbar"))
+                        Text(HTMLFormatter().htmlToPlainText(law.abstract ?? "Kein Inhalt verfügbar"))
                             .lineSpacing(2.0)
                             .font(.system(size: 18))
                             .fontWeight(.medium)
                     }
                     .padding()
                     
-                    if !(news.verkuendung ?? []).isEmpty {
+                    if !(law.verkuendung ?? []).isEmpty {
                         VStack {
                             HStack {
                                 Text("Weiterführende Links")
                                     .foregroundStyle(Color.theme.sectonTextColor)
                                 Spacer()
                             }
-                            ForEach(news.verkuendung ?? []) { verkuendung in
+                            ForEach(law.verkuendung ?? []) { verkuendung in
                                 HStack {
                                     Text(verkuendung.pdfURL)
                                         .padding()

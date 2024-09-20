@@ -11,30 +11,29 @@
 import Foundation
 
 @MainActor
-class NewsViewModel: ObservableObject {
+class LawsViewModel: ObservableObject {
     
-    @Published var news: [News]? = []
-//    @Published var singleNews: [News] = []
-    @Published var newsSearchInput: String = ""
+    @Published var laws: [Law]? = []
+    @Published var lawsSearchInput: String = ""
     @Published var errorMessage: String?
     @Published var isLoading: Bool?
     
-    func loadNews() {
+    func loadLaws() {
         Task {
-            await fetchNews()
+            await fetchLaws()
         }
     }
     
-    func fetchNews() async {
-        let trimmedSearch = newsSearchInput.trimmingCharacters(in: .whitespaces)
+    func fetchLaws() async {
+        let trimmedSearch = lawsSearchInput.trimmingCharacters(in: .whitespaces)
         print(trimmedSearch)
-        print("LOADING NEWS")
+        print("LOADING LAWS")
         
         let token = "I9FKdCn.hbfefNWCY336dL6x62vfwNKpoN2RZ1gp21"
         
         guard let url = URL(string: "https://search.dip.bundestag.de/api/v1/vorgang?f.titel=\(trimmedSearch)&f.vorgangstyp=Gesetzgebung&format=json&apikey=\(token)") else {
-            print("Ungültige News URL")
-            errorMessage = "Ungültige News URL"
+            print("Ungültige Laws URL")
+            errorMessage = "Ungültige Laws URL"
             return
         }
         let defaultURL = URL(string: "https://search.dip.bundestag.de/api/v1/vorgang?f.vorgangstyp=Gesetzgebung&format=json&apikey=\(token)")
@@ -50,14 +49,14 @@ class NewsViewModel: ObservableObject {
                     throw URLError(.badServerResponse)
                 }
                 
-                let decodedNews = try JSONDecoder().decode(NewsResult.self, from: data)
+                let decodedLaws = try JSONDecoder().decode(LawResult.self, from: data)
                 
-                self.news = decodedNews.documents
+                self.laws = decodedLaws.documents
                 
 
             } catch {
                 errorMessage = "Fehler: \(error.localizedDescription)"
-                print("Fehler beim Abrufen der News-Daten: \(error)")
+                print("Fehler beim Abrufen der Laws-Daten: \(error)")
             }
         } else {
             do {
@@ -66,23 +65,23 @@ class NewsViewModel: ObservableObject {
                     throw URLError(.badServerResponse)
                 }
                 
-                let decodedNews = try JSONDecoder().decode(NewsResult.self, from: data)
+                let decodedLaws = try JSONDecoder().decode(LawResult.self, from: data)
                 
-                self.news = decodedNews.documents
+                self.laws = decodedLaws.documents
                 
 
             } catch {
                 errorMessage = "Fehler: \(error.localizedDescription)"
-                print("Fehler beim Abrufen der News-Daten: \(error)")
+                print("Fehler beim Abrufen der Laws-Daten: \(error)")
             }
         }
     }
     
-    func filterNews(searchText: String) -> [News] {
+    func filterLaws(searchText: String) -> [Law] {
         if searchText.isEmpty {
-            return news ?? []
+            return laws ?? []
                 } else {
-                    return news?.filter {
+                    return laws?.filter {
                         $0.titel.contains(searchText)
                     } ?? []
                 }

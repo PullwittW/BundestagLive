@@ -7,9 +7,9 @@
 
 import Foundation
 
-//// MARK: - NewsResult
-//struct NewsResult: Codable {
+//// MARK: - LawsResult
+//struct LawsResult: Codable {
 //    let numFound: Int
 //    let cursor: String
-//    let documents: [News]?
+//    let documents: [Law]?
 //}

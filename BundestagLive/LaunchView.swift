@@ -15,7 +15,8 @@ struct LaunchView: View {
     @EnvironmentObject private var pollsVM: PollsViewModel
     @EnvironmentObject private var parliamentsVM: ParliamentsViewModel
     @EnvironmentObject private var surveysVM: SurveysViewModel
-    @EnvironmentObject private var newsVM: NewsViewModel
+    @EnvironmentObject private var lawsVM: LawsViewModel
+//    @EnvironmentObject private var newsVM: TagesschauViewModel
     
     var body: some View {
         NavigationStack {
@@ -36,26 +37,20 @@ struct LaunchView: View {
             }
             .toolbar(.hidden, for: .tabBar)
             .onAppear {
-//                if ((politiciansVM.politicians?.isEmpty) != false) {
-//                    politiciansVM.loadPoliticians()
-//                }
-//                if ((partysVM.partys?.isEmpty) != false) {
-//                    partysVM.loadPartys(searchInput: politiciansVM.searchInput)
-//                }
-//                if ((fractionsVM.fractions?.isEmpty) != false) {
-//                    fractionsVM.loadFractions(searchInput: politiciansVM.searchInput)
-//                }
-//                if ((pollsVM.polls?.isEmpty) != false) {
-//                    pollsVM.loadPolls(pollsSearchText: pollsVM.pollsSearchText)
-//                }
+                if ((pollsVM.polls?.isEmpty) != false) {
+                    pollsVM.loadPolls(pollsSearchText: pollsVM.pollsSearchText)
+                }
                 if ((parliamentsVM.futureParliaments?.isEmpty) != false) {
                     parliamentsVM.loadFutureParliaments()
                 }
-//                if ((parliamentsVM.formerParliaments?.isEmpty) != false) {
-//                    parliamentsVM.loadFormerParliament()
-//                }
-//                if ((surveysVM.surveys?.isEmpty) != false) {
+                if ((parliamentsVM.formerParliaments?.isEmpty) != false) {
+                    parliamentsVM.loadFormerParliament()
+                }
+                if ((surveysVM.surveys?.isEmpty) != false) {
                     surveysVM.loadSurveys()
+                }
+//                if ((newsVM.news.isEmpty) != false) {
+//                    newsVM.loadNews()
 //                }
             }
         }

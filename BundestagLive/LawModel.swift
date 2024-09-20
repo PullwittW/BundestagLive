@@ -7,15 +7,15 @@
 
 import Foundation
 
-// MARK: - NewsResult
-struct NewsResult: Codable {
+// MARK: - LawsResult
+struct LawResult: Codable {
     let numFound: Int
     let cursor: String
-    let documents: [News]?
+    let documents: [Law]?
 }
 
 // MARK: - Document
-struct News: Codable, Identifiable {
+struct Law: Codable, Identifiable {
     let id: String
     let abstract: String?
     let beratungsstand: String?
