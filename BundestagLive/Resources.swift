@@ -12,16 +12,16 @@ struct Resources: View {
         NavigationStack {
             List {
                 Section("EU-Parlament, Bundestag und Landtage") {
-                    Text("[Abgeornetenwatch](www.abgeordnetenwatch.de)")
-                    Text("[Bundeszentrale für polititsche Bildung | BPB](www.bpb.de)")
+                    Text("[Abgeornetenwatch](https://abgeordnetenwatch.de)")
+                    Text("[Bundeszentrale für polititsche Bildung | BPB](https://bpb.de)")
                     Text("[DIP Bundestag](https://dip.bundestag.de/über-dip/hilfe/api#content)")
                 }
                 Section("Wahlprognosen") {
-                    Text("[Dawum](www.dawum.de)")
+                    Text("[Dawum](https://dawum.de)")
                     Text("[Lizenz von ODC-ODbL](https://opendatacommons.org/licenses/odbl/1-0/)")
                 }
                 Section("Argumente gegen Populismus") {
-                    Text("[MiaThinkX zu Populismus](www.populismus.online)")
+                    Text("[MiaThinkX zu Populismus](https://populismus.online)")
                 }
             }
             .navigationTitle("Datasources")

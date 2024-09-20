@@ -40,7 +40,7 @@ struct NextElectionDetailsView: View {
                                 }
                             }
                             
-                            Text("Wann wird gewählt: am")
+                            Text("Wann wird gewählt:")
                                 .foregroundStyle(Color.theme.sectonTextColor)
                             + Text(DateConverter().convertDateFormat(from: parliament.electionDate ?? "2000-01-01")!)
                             
@@ -107,17 +107,16 @@ struct NextElectionDetailsView: View {
                                 .chartXAxisLabel("Partei")            // Optional: Add an X-axis label
                                 .frame(height: 300)
                             }
+                            Divider()
+                            
+//                          Zusammenstellung möglicher Regierungskoalitionen
+//                            Text("Mögliche Regierungskoalitionen:")
+//                                .foregroundStyle(Color.theme.sectonTextColor)
+//                                .font(.callout)
+//                                .fontWeight(.semibold)
                         }
                         .font(.callout)
                         .fontWeight(.semibold)
-                        
-                        Divider()
-                        
-                        Text("Mögliche Regierungskoalitionen:")
-                            .foregroundStyle(Color.theme.sectonTextColor)
-                            .font(.callout)
-                            .fontWeight(.semibold)
-                        
                         
                     }
                     .padding()

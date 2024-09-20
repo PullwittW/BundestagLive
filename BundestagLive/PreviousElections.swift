@@ -27,6 +27,7 @@ struct PreviousElections: View {
                             ForEach(parliamentsVM.formerParliaments ?? []) { parliament in
                                 SinglePreviousElectionView(parliament: parliament)
                                     .padding(.bottom, 10)
+                                    .frame(height: 130)
                             }
                         }
                         .padding()

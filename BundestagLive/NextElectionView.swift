@@ -27,6 +27,7 @@ struct NextElectionView: View {
                                 ForEach(parliamentsVM.futureParliaments ?? []) { parliament in
                                     SingleNextElectionView(parliament: parliament)
                                         .padding(.bottom, 10)
+                                        .frame(height: 130)
                                 }
                             }
                             .padding()

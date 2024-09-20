@@ -45,7 +45,7 @@ struct HomeView: View {
                                 HStack {
                                     ForEach(parliamentsVM.futureParliaments ?? []) { parliament in
                                         SingleNextElectionView(parliament: parliament)
-                                            .frame(height: 90)
+                                            .frame(height: 70)
                                             .padding(.trailing, 10)
                                             .padding(.vertical, 10)
                                     }

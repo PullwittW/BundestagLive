@@ -21,25 +21,34 @@ struct SingleNextElectionView: View {
                         .fill(Color.white)
                         .strokeBorder(style: StrokeStyle(lineWidth: 3))
                     
-                    VStack {
-                        Spacer()
-                        Text("\(parliament.parliament?.label ?? "Bevorstehende Wahl")") // Wahl
-                            .font(.title2)
-                            .bold()
-                            .foregroundStyle(Color.theme.textColor)
-                            .padding(.horizontal)
-                        Spacer()
+                    HStack(spacing: 2) {
+                        
+                        Image(parliament.parliament?.label ?? "Bevorstehende Wahl")
+                            .resizable()
+                            .scaledToFit()
+                            .padding(.vertical, 8)
+                            .padding(.leading, 8)
+                            
+                        
                         ZStack {
                             RoundedRectangle(cornerRadius: 6)
                                 .fill(Color.theme.accent)
-                                .frame(height: 40)
                                 .frame(maxWidth: .infinity)
-                            
-                            Text(DateFormatter.dateFormatter.convertDateFormat(from: parliament.electionDate ?? "2025-01-01")!)
-                                .bold()
-                                .foregroundStyle(Color.white)
+                                .padding(5)
+                                
+                            VStack {
+                                Text("\(parliament.parliament?.label ?? "Bevorstehende Wahl")") // Wahl
+                                    .font(.title3)
+                                    .bold()
+                                    .foregroundStyle(Color.theme.textColor)
+                                    .padding(.horizontal)
+                                
+                                Text(DateFormatter.dateFormatter.convertDateFormat(from: parliament.electionDate ?? "2025-01-01")!)
+                                    .bold()
+                                    .font(.callout)
+                                    .fontWeight(.semibold).foregroundStyle(Color.white)
+                            }
                         }
-                        .padding(5)
                     }
                 }
             }
