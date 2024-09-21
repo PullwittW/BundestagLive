@@ -103,7 +103,7 @@ struct SearchView: View {
             }
             .navigationTitle("Suche")
             .navigationBarTitleDisplayMode(.large)
-            .searchable(text: $politiciansVM.searchInput, placement: .navigationBarDrawer(displayMode: .always), prompt: "Politiker*in, Partei, Fraktion...")
+            .searchable(text: $politiciansVM.searchInput, placement: .navigationBarDrawer(displayMode: .always), prompt: "Politiker*in, Partei, Fraktion, Nachrichten...")
             .onAppear {
                 if ((politiciansVM.politicians?.isEmpty) != false) {
                     politiciansVM.loadPoliticians()

@@ -23,4 +23,11 @@ class NetworkManager: ObservableObject {
         
         monitor.start(queue: queue)
     }
+    
+    func checkNetwork() {
+        let path = monitor.currentPath
+        self.isConnected = path.status == .satisfied
+        
+        print(self.isConnected)
+    }
 }

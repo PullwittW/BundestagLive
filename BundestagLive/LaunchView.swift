@@ -16,7 +16,7 @@ struct LaunchView: View {
     @EnvironmentObject private var parliamentsVM: ParliamentsViewModel
     @EnvironmentObject private var surveysVM: SurveysViewModel
     @EnvironmentObject private var lawsVM: LawsViewModel
-//    @EnvironmentObject private var newsVM: TagesschauViewModel
+    @EnvironmentObject private var newsVM: TagesschauViewModel
     
     var body: some View {
         NavigationStack {
@@ -49,9 +49,9 @@ struct LaunchView: View {
                 if ((surveysVM.surveys?.isEmpty) != false) {
                     surveysVM.loadSurveys()
                 }
-//                if ((newsVM.news.isEmpty) != false) {
-//                    newsVM.loadNews()
-//                }
+                if ((newsVM.news.isEmpty) != false) {
+                    newsVM.loadNews()
+                }
             }
         }
     }

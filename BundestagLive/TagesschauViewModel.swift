@@ -48,9 +48,9 @@ class TagesschauViewModel: ObservableObject {
             print("Fehler beim Abrufen der News-Daten: \(error)")
         }
         
-        for n in news {
-            print(n)
-        }
+//        for n in news {
+//            print(n)
+//        }
         
         isLoading = false
     }

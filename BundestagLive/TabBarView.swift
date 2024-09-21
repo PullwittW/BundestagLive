@@ -62,6 +62,9 @@ struct TabBarView: View {
             get: { !networkManager.isConnected },
             set: { networkManager.isConnected = !$0 }
         )) {
+            Button("Neu laden...") {
+                networkManager.checkNetwork()
+            }
             Button("Öffne Einstellungen") {
                 // Get the settings URL and open it
                 if let url = URL(string: UIApplication.openSettingsURLString) {

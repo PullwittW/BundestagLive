@@ -57,6 +57,7 @@
 		72D49F332C9DF29B00EC1275 /* TagesschauModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D49F322C9DF29B00EC1275 /* TagesschauModel.swift */; };
 		72D49F362C9DF6A400EC1275 /* TagesschauViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D49F352C9DF6A400EC1275 /* TagesschauViewModel.swift */; };
 		72D49F392C9DFD8A00EC1275 /* SingleNewsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D49F382C9DFD8A00EC1275 /* SingleNewsView.swift */; };
+		72D49F3B2C9ECA8D00EC1275 /* NewsDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D49F3A2C9ECA8D00EC1275 /* NewsDetailView.swift */; };
 		72D51B612C872AC200785093 /* PreviousElections.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D51B602C872AC200785093 /* PreviousElections.swift */; };
 		72D51B642C872C8A00785093 /* ParliamentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D51B632C872C8A00785093 /* ParliamentModel.swift */; };
 		72D51B662C872C9300785093 /* ParliamentsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D51B652C872C9300785093 /* ParliamentsModel.swift */; };
@@ -127,6 +128,7 @@
 		72D49F322C9DF29B00EC1275 /* TagesschauModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagesschauModel.swift; sourceTree = "<group>"; };
 		72D49F352C9DF6A400EC1275 /* TagesschauViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagesschauViewModel.swift; sourceTree = "<group>"; };
 		72D49F382C9DFD8A00EC1275 /* SingleNewsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleNewsView.swift; sourceTree = "<group>"; };
+		72D49F3A2C9ECA8D00EC1275 /* NewsDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsDetailView.swift; sourceTree = "<group>"; };
 		72D51B602C872AC200785093 /* PreviousElections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviousElections.swift; sourceTree = "<group>"; };
 		72D51B632C872C8A00785093 /* ParliamentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParliamentModel.swift; sourceTree = "<group>"; };
 		72D51B652C872C9300785093 /* ParliamentsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParliamentsModel.swift; sourceTree = "<group>"; };
@@ -450,6 +452,7 @@
 			isa = PBXGroup;
 			children = (
 				72D49F382C9DFD8A00EC1275 /* SingleNewsView.swift */,
+				72D49F3A2C9ECA8D00EC1275 /* NewsDetailView.swift */,
 			);
 			name = News;
 			sourceTree = "<group>";
@@ -672,6 +675,7 @@
 				72D49F362C9DF6A400EC1275 /* TagesschauViewModel.swift in Sources */,
 				72C4575D2C826FC1006E1234 /* PollsView.swift in Sources */,
 				72CD2DE22C847A0900E655C4 /* ElectionProgramm.swift in Sources */,
+				72D49F3B2C9ECA8D00EC1275 /* NewsDetailView.swift in Sources */,
 				72CD2DE02C8479FC00E655C4 /* ElectionProgramms.swift in Sources */,
 				72CD2DFB2C852C6D00E655C4 /* PollDetailView.swift in Sources */,
 				72CF33492C833A10002D7BCD /* FractionsViewModel.swift in Sources */,

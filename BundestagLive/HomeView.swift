@@ -12,7 +12,7 @@ struct HomeView: View {
     @EnvironmentObject private var politiciansVM: PoliticiansViewModel
     @EnvironmentObject private var pollsVM: PollsViewModel
     @EnvironmentObject private var parliamentsVM: ParliamentsViewModel
-//    @EnvironmentObject private var newsVM: TagesschauViewModel
+    @EnvironmentObject private var newsVM: TagesschauViewModel
     
     @State private var count: Int = 0
     
@@ -83,17 +83,41 @@ struct HomeView: View {
                         }
                     }
                     
-//                    // Neuste Nachrichten von der Tagesschau Inland
-//                    HStack {
-//                        Text("Nachrichten aus dem Inland")
-//                            .foregroundStyle(Color.theme.sectonTextColor)
-//                            .font(.callout)
-//                            .fontWeight(.semibold)
-//                        Spacer()
-//                    }
+                    // Neuste Nachrichten von der Tagesschau Inland
+                    HStack {
+                        Text("Nachrichten aus dem Inland")
+                            .foregroundStyle(Color.theme.sectonTextColor)
+                            .font(.callout)
+                            .fontWeight(.semibold)
+                        Spacer()
+                    }
+                    VStack(alignment: .leading) {
+                        ForEach(newsVM.news.prefix(5)) { news in
+                            NavigationLink {
+                                NewsDetailView(news: news)
+                            } label: {
+                                SingleNewsView(news: news)
+                                    .padding(.vertical, 5)
+                            }
+                        }
+                    }
+                    .padding(.trailing)
+                    
+                    // Politiker im Spotlight
+                    HStack {
+                        Text("Politiker im Spotlight")
+                            .foregroundStyle(Color.theme.sectonTextColor)
+                            .font(.callout)
+                            .fontWeight(.semibold)
+                        Spacer()
+                    }
 //                    VStack {
-//                        ForEach(newsVM.news) { news in
-//                            Text(news.title ?? "Titel")
+//                        if let politician = politiciansVM.politicians?.randomElement() {
+//                            NavigationLink {
+//                                SinglePoliticianView(politician: politician)
+//                            } label: {
+//                                Text(politician.label!)
+//                            }
 //                        }
 //                    }
                     
@@ -103,6 +127,9 @@ struct HomeView: View {
                 .padding(.leading)
             }
             .navigationTitle("Neues")
+            .refreshable {
+                newsVM.loadNews()
+            }
         }
     }
 }
