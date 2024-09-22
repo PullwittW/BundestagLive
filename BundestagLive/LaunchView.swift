@@ -46,9 +46,9 @@ struct LaunchView: View {
                 if ((parliamentsVM.formerParliaments?.isEmpty) != false) {
                     parliamentsVM.loadFormerParliament()
                 }
-                if ((surveysVM.surveys?.isEmpty) != false) {
+//                if ((surveysVM.surveys?.isEmpty) != false) {
                     surveysVM.loadSurveys()
-                }
+//                }
                 if ((newsVM.news.isEmpty) != false) {
                     newsVM.loadNews()
                 }

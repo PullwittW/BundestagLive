@@ -14,6 +14,7 @@ struct NextElectionDetailsView: View {
     let parliament: DataClassParliament
     
     @State private var parliamentId: String = ""
+    @State private var instituteId: String = ""
     @State private var bundestag: Bool = false
     @State private var europa: Bool = false
     
@@ -40,7 +41,7 @@ struct NextElectionDetailsView: View {
                                 }
                             }
                             
-                            Text("Wann wird gewählt:")
+                            Text("Wann wird gewählt: ")
                                 .foregroundStyle(Color.theme.sectonTextColor)
                             + Text(DateConverter().convertDateFormat(from: parliament.electionDate ?? "2000-01-01")!)
                             
@@ -54,18 +55,34 @@ struct NextElectionDetailsView: View {
                     Divider()
                         .padding(.horizontal)
                     
-                    // aktuelle Wahlumfragen
+                    // aktuelle Wahlumfragen mit absteigendem Datum und gefiltert mit dem Wahl-Bundesland
                     let filteredSurveys = Array(surveysVM.surveys!.values
                         .sorted(by: { $0.date ?? "" > $1.date ?? "" })
-                        .filter { $0.parliamentID == parliamentId }
-                        .prefix(1)) // Begrenzung auf das erste gefilterte Element
+                        .filter { $0.parliamentID == parliamentId })
                     
-                    ForEach(filteredSurveys, id: \.id) { survey in // Neuste Umfrage zum betrefenden Land
+                    // nur Umfrageergebnisse von einem bestimmten Institut
+                    let singleSurvey = filteredSurveys.filter { survey in
+                        survey.instituteID == instituteId
+                    }
+                    
+                    ForEach(singleSurvey, id: \.id) { survey in // Neuste Umfrage zum betrefenden Land
                         VStack(alignment: .leading) {
-                            if let instituteId = survey.instituteID {
-                                Text("Umfrageinstitut: ")
+                            HStack {
+                                Text("Umfrageinstitut:")
                                     .foregroundStyle(Color.theme.sectonTextColor)
-                                + Text(surveysVM.getInstituteName(instituteId: instituteId))
+                                Menu {
+                                    ForEach(filteredSurveys) { survey in
+                                        Button {
+                                            instituteId = survey.instituteID ?? "0" // Institut wechseln
+                                        } label: {
+                                            Text(surveysVM.getInstituteName(instituteId: survey.instituteID!))
+                                        }
+                                    }
+                                } label: {
+                                    Text(surveysVM.getInstituteName(instituteId: instituteId))
+                                }
+                                
+                                Spacer()
                             }
                             
                             if let surveyPeriod = survey.surveyPeriod {
@@ -132,6 +149,11 @@ struct NextElectionDetailsView: View {
                     europa = true
                 }
                 print(self.parliamentId)
+                
+                // Erste Umfrage sortiert mit Datum absteigend und speziefische Parlament, damit parliamentId nicht 0 ist
+                self.instituteId = Array(surveysVM.surveys!.values
+                    .sorted(by: { $0.date ?? "" > $1.date ?? "" })
+                    .filter { $0.parliamentID == parliamentId }).first?.instituteID ?? ""
             }
             .toolbar(.hidden, for: .tabBar)
             .navigationBarTitleDisplayMode(.inline)
